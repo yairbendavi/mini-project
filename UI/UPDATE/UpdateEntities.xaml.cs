@@ -25,5 +25,26 @@ namespace UI
         {
             InitializeComponent();
         }
+
+        private void UpdateNannyButton_Click(object sender, RoutedEventArgs e)
+        {
+            new UpdateNanny().Show();
+            this.Close();
+        }
+        private void UpdateMotherButton_Click(object sender, RoutedEventArgs e)
+        {
+            new UpdateMother().Show();
+            this.Close();
+        }
+        private void UpdateChildButton_Click(object sender, RoutedEventArgs e)
+        {
+            new UpdateChild().Show();
+            this.Close();
+        }
+        private void UpdateContracButton_Click(object sender, RoutedEventArgs e)
+        {
+            new UpdateContract().Show();
+            this.Close();
+        }
     }
 }

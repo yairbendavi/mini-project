@@ -22,10 +22,10 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button Name="AddNannyButton" Content="Nanny" Grid.Row="1"/>
-        <Button Name="AddMotherButton" Content="Mother" Grid.Row="2"/>
-        <Button Name="AddChildButton" Content="Child" Grid.Row="3"/>
-        <Button Name="AddContracButton" Content="Contract" Grid.Row="4"/>
+        <Button Name="UpdateNannyButton" Content="Nanny" Grid.Row="1" Click="UpdateNannyButton_Click"/>
+        <Button Name="UpdateMotherButton" Content="Mother" Grid.Row="2" Click="UpdateMotherButton_Click"/>
+        <Button Name="UpdateChildButton" Content="Child" Grid.Row="3" Click="UpdateChildButton_Click"/>
+        <Button Name="UpdateContracButton" Content="Contract" Grid.Row="4" Click="UpdateContracButton_Click"/>
         <Label Content="WHAT ENTITY WOULD YOU LIKE&#x0d;&#x0a;TO UPDATE?" FontSize="18" Grid.Row="0" FontFamily="Segoe Script" Foreground="#FF171197" Height="70" Width="375">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

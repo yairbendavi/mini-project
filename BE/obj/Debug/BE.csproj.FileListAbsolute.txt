@@ -2,3 +2,8 @@ C:\Users\INSPIRON\Desktop\DS\BE\bin\Debug\BE.dll
 C:\Users\INSPIRON\Desktop\DS\BE\bin\Debug\BE.pdb
 C:\Users\INSPIRON\Desktop\DS\BE\obj\Debug\BE.dll
 C:\Users\INSPIRON\Desktop\DS\BE\obj\Debug\BE.pdb
+C:\Users\haddad\Source\Repos\mini-project\BE\bin\Debug\BE.dll
+C:\Users\haddad\Source\Repos\mini-project\BE\bin\Debug\BE.pdb
+C:\Users\haddad\Source\Repos\mini-project\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
+C:\Users\haddad\Source\Repos\mini-project\BE\obj\Debug\BE.dll
+C:\Users\haddad\Source\Repos\mini-project\BE\obj\Debug\BE.pdb

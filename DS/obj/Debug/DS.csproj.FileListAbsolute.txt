@@ -5,3 +5,11 @@ C:\Users\INSPIRON\Desktop\DS\DS\bin\Debug\BE.pdb
 C:\Users\INSPIRON\Desktop\DS\DS\obj\Debug\DS.csprojResolveAssemblyReference.cache
 C:\Users\INSPIRON\Desktop\DS\DS\obj\Debug\DS.dll
 C:\Users\INSPIRON\Desktop\DS\DS\obj\Debug\DS.pdb
+C:\Users\haddad\Source\Repos\mini-project\DS\bin\Debug\DS.dll
+C:\Users\haddad\Source\Repos\mini-project\DS\bin\Debug\DS.pdb
+C:\Users\haddad\Source\Repos\mini-project\DS\bin\Debug\BE.dll
+C:\Users\haddad\Source\Repos\mini-project\DS\bin\Debug\BE.pdb
+C:\Users\haddad\Source\Repos\mini-project\DS\obj\Debug\DS.csprojResolveAssemblyReference.cache
+C:\Users\haddad\Source\Repos\mini-project\DS\obj\Debug\DS.csproj.CoreCompileInputs.cache
+C:\Users\haddad\Source\Repos\mini-project\DS\obj\Debug\DS.dll
+C:\Users\haddad\Source\Repos\mini-project\DS\obj\Debug\DS.pdb
