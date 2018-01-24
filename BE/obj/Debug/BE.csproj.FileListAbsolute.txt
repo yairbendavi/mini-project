@@ -1,0 +1,4 @@
+C:\Users\INSPIRON\Desktop\DS\BE\bin\Debug\BE.dll
+C:\Users\INSPIRON\Desktop\DS\BE\bin\Debug\BE.pdb
+C:\Users\INSPIRON\Desktop\DS\BE\obj\Debug\BE.dll
+C:\Users\INSPIRON\Desktop\DS\BE\obj\Debug\BE.pdb

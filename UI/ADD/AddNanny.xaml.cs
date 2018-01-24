@@ -1,0 +1,51 @@
+﻿using System;
+using BE;
+using BL;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace UI
+{
+    /// <summary>
+    /// Interaction logic for AddNanny.xaml
+    /// </summary>
+    public partial class AddNanny : Window
+    {
+        BL_imp BL;
+        Nanny nanny;
+
+        public AddNanny()
+        {
+            InitializeComponent();
+
+            nanny = new Nanny();
+            this.DataContext = nanny;
+            BL = new BL_imp();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                BL.AddNanny(nanny);
+                nanny = new Nanny();
+                this.DataContext = nanny;
+                this.Close();
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+            }
+        }
+    }
+}

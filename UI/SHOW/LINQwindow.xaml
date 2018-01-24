@@ -1,0 +1,169 @@
+﻿<Window x:Class="UI.LINQwindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI"
+      mc:Ignorable="d"
+        Title="LINQ" Height="600" Width="750">
+    <Window.Resources>
+        <local:Button1ComboBoxConverter x:Key="button1converter"/>
+        <local:Button2ComboBoxConverter x:Key="button2converter"/>
+        <local:Button3ComboBoxConverter x:Key="button3converter"/>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Height" Value="65"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+    </Window.Resources>
+    <Grid Name="hooo">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="92*"/>
+            <RowDefinition Height="76*"/>
+            <RowDefinition Height="401*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Name="Button1" Grid.Column="0" Click="Button1_Click" Content="{Binding ElementName=EntityComboBox, Path=SelectedItem, Mode=OneWay, Converter={StaticResource button1converter}}"/>
+            <Button Name="Button2" Grid.Column="1" Click="Button2_Click" Visibility="{Binding ElementName=EntityComboBox, Path=SelectedItem, Mode=OneWay, Converter={StaticResource button2converter}}" Content="{Binding ElementName=EntityComboBox, Path=SelectedItem, Mode=OneWay, Converter={StaticResource button2converter}}"/>
+            <Button Name="Button3" Grid.Column="2" Click="Button3_Click" Visibility="{Binding ElementName=EntityComboBox, Path=SelectedItem, Mode=OneWay, Converter={StaticResource button3converter}}" Content="{Binding ElementName=EntityComboBox, Path=SelectedItem, Mode=OneWay, Converter={StaticResource button3converter}}"/>
+            
+        </Grid>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Which entity would you like&#xA;to get information on?" FontSize="27" Foreground="DarkKhaki"/>
+            <ComboBox Name="EntityComboBox" Grid.Column="1" Height="50" Width="250" FontSize="28">
+                <ComboBoxItem Content="Nanny" IsSelected="True"/>
+                <ComboBoxItem Content="Mother"/>
+                <ComboBoxItem Content="Child"/>
+                <ComboBoxItem Content="Contract"/>
+            </ComboBox>
+        </Grid>
+
+        <ListView Name="ShowAllChildrenListView" Visibility="Collapsed" Grid.Row="2" ItemsSource="{Binding GetAllChildren}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding FirstName}" Header="First Name" Width="75"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding BirthDay}" Header="Birthday" Width="75"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding MotherId}" Header="Mother ID" Width="90"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding IsThereSpecialNeeds}" Header="Special Needs" Width="90"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="Child Id:" Width="90"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListView Name="ShowAllNanniesListView" Visibility="Collapsed" Grid.Row="2" ItemsSource="{Binding GetAllNannies}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding FirstName}" Header="First Name" Width="75"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding LastName}" Header="Last Name" Width="75"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="ID" Width="75"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Adress}" Header="Address" Width="150"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding YersOfExperiance}" Header="Years For EXP:" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding SalareyPerHour}" Header="Salary Per Hour" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding SalareyPerMonth}" Header="Salary Per Month" Width="120"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListView Name="ShowAllMothersListView" Visibility="Collapsed" Grid.Row="2" ItemsSource="{Binding GetAllMothers}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding FirstName}" Header="First Name" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding LastName}" Header="Last Name" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="ID" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding AddressForNanny}" Header="Address For Nanny" Width="200"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding PhoneNumber}" Header="Phone Number" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListView Name="ShowAllContractsListView" Visibility="Collapsed" Grid.Row="2" ItemsSource="{Binding GetAllContracts}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding ContructNumber}" Header="Contract No." Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding ChildFirstName}" Header="Child First Name" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding NannyFirstName}" Header="Nanny First Name" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding IsSigned}" Header="Is Signed" Width="75"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding BeginingDate}" Header="Beginning Date" Width="150"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding EndingDate}" Header="Ending Date" Width="150"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListView Name="SignedContractsListView" Visibility="Collapsed" Grid.Row="2" ItemsSource="{Binding ShowAllSignedContracts}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding ContructNumber}" Header="Contract No." Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding ChildFirstName}" Header="Child First Name" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding NannyFirstName}" Header="Nanny First Name" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding IsSigned}" Header="Is Signed" Width="75"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding BeginingDate}" Header="Beginning Date" Width="150"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding EndingDate}" Header="Ending Date" Width="150"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListView Name="GroupByChildrenAgeListView" Visibility="Collapsed" Grid.Row="2" ItemsSource="{Binding GroupByChildrenAge}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding FirstName}" Header="First Name" Width="75"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding LastName}" Header="Last Name" Width="75"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="ID" Width="75"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Adress}" Header="Address" Width="150"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding YersOfExperiance}" Header="Years For EXP:" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding SalareyPerHour}" Header="Salary Per Hour" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding SalareyPerMonth}" Header="Salary Per Month" Width="120"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListView Name="ShowAllTamatListView" Visibility="Collapsed" Grid.Row="2" ItemsSource="{Binding ShowAllTAMATNannies}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding FirstName}" Header="First Name" Width="75"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding LastName}" Header="Last Name" Width="75"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="ID" Width="75"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Adress}" Header="Address" Width="150"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding YersOfExperiance}" Header="Years For EXP:" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding SalareyPerHour}" Header="Salary Per Hour" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding SalareyPerMonth}" Header="Salary Per Month" Width="120"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListView Name="GetAllChildrenWithoutNannyListView" Visibility="Collapsed" Grid.Row="2" ItemsSource="{Binding ShowAllChildrenWithoutNanny}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding FirstName}" Header="First Name" Width="75"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding LastName}" Header="Last Name" Width="75"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Birthday}" Header="Birthday" Width="75"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding MotherID}" Header="Mother ID" Width="90"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding IsThereSpecialNeeds}" Header="Special Needs" Width="90"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="Child Id:" Width="90"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListView Name="GroupAllContractsByDistanceListView" Visibility="Collapsed" Grid.Row="2" ItemsSource="{Binding GroupAllContractsByDistance}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding ContructNumber}" Header="Contract No." Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding ChildFirstName}" Header="Child First Name" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding NannyFirstName}" Header="Nanny First Name" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding IsSigned}" Header="Is Signed" Width="75"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding BeginingDate}" Header="Beginning Date" Width="150"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding EndingDate}" Header="Ending Date" Width="150"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

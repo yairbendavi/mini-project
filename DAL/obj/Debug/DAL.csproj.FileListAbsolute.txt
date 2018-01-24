@@ -1,0 +1,9 @@
+C:\Users\INSPIRON\Desktop\DS\DAL\bin\Debug\DAL.dll
+C:\Users\INSPIRON\Desktop\DS\DAL\bin\Debug\DAL.pdb
+C:\Users\INSPIRON\Desktop\DS\DAL\bin\Debug\BE.dll
+C:\Users\INSPIRON\Desktop\DS\DAL\bin\Debug\DS.dll
+C:\Users\INSPIRON\Desktop\DS\DAL\bin\Debug\BE.pdb
+C:\Users\INSPIRON\Desktop\DS\DAL\bin\Debug\DS.pdb
+C:\Users\INSPIRON\Desktop\DS\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\INSPIRON\Desktop\DS\DAL\obj\Debug\DAL.dll
+C:\Users\INSPIRON\Desktop\DS\DAL\obj\Debug\DAL.pdb
