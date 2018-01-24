@@ -21,9 +21,36 @@ namespace UI
     /// </summary>
     public partial class UpdateContract : Window
     {
+        IBL BL;
         public UpdateContract()
         {
             InitializeComponent();
+            BL = new BL_imp();
+
+            foreach (Contract contract in BL.GetAllContracts())
+            {
+                ComboBoxItem item = new ComboBoxItem
+                {
+                    Content = contract.ContructNumber
+                };
+
+                this.contractNumberComboBox.Items.Add(item);
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Contract contract = new Contract();
+            this.DataContext = contract;
+
+            try
+            {
+                BL.UpdateContract(contract);
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+            }
         }
     }
 }

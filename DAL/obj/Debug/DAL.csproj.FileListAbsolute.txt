@@ -26,3 +26,13 @@ C:\Users\INSPIRON\Source\Repos\mini-project\DAL\bin\Debug\DS.pdb
 C:\Users\INSPIRON\Source\Repos\mini-project\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\INSPIRON\Source\Repos\mini-project\DAL\obj\Debug\DAL.dll
 C:\Users\INSPIRON\Source\Repos\mini-project\DAL\obj\Debug\DAL.pdb
+C:\Users\haddad\Desktop\mini-project\DAL\bin\Debug\DAL.dll
+C:\Users\haddad\Desktop\mini-project\DAL\bin\Debug\DAL.pdb
+C:\Users\haddad\Desktop\mini-project\DAL\bin\Debug\BE.dll
+C:\Users\haddad\Desktop\mini-project\DAL\bin\Debug\DS.dll
+C:\Users\haddad\Desktop\mini-project\DAL\bin\Debug\BE.pdb
+C:\Users\haddad\Desktop\mini-project\DAL\bin\Debug\DS.pdb
+C:\Users\haddad\Desktop\mini-project\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\haddad\Desktop\mini-project\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\haddad\Desktop\mini-project\DAL\obj\Debug\DAL.dll
+C:\Users\haddad\Desktop\mini-project\DAL\obj\Debug\DAL.pdb

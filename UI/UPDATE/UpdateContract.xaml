@@ -7,9 +7,6 @@
         xmlns:BE1="clr-namespace:BE;assembly=BE" 
         mc:Ignorable="d"
         Title="UpdateContract" Height="450" Width="280">
-    <Window.Resources>
-        <CollectionViewSource x:Key="contractViewSource" d:DesignSource="{d:DesignInstance {x:Type BE1:Contract}, CreateList=True}"/>
-    </Window.Resources>
     <Grid>
 
         <Grid x:Name="grid1" VerticalAlignment="Top" Margin="10,10,0,0" HorizontalAlignment="Left" DataContext="{StaticResource contractViewSource}">
@@ -33,10 +30,7 @@
             <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Begining Date:"/>
             <DatePicker x:Name="beginingDateDatePicker" VerticalAlignment="Center" SelectedDate="{Binding BeginingDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
             <Label VerticalAlignment="Center" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Contruct Number:"/>
-
-            <ComboBox Grid.Row="0" Grid.Column="1" Height="25" Width="130">
-            </ComboBox>
-
+            <ComboBox x:Name="contractNumberComboBox" Grid.Row="0" Grid.Column="1" Height="25" Width="130"/>
             <Label VerticalAlignment="Center" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Ending Date:"/>
             <DatePicker x:Name="endingDateDatePicker" VerticalAlignment="Center" SelectedDate="{Binding EndingDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
             <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Is Signed:"/>
@@ -56,7 +50,7 @@
             <Label VerticalAlignment="Center" Grid.Row="10" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Child ID:"/>
             <TextBox x:Name="childIdTextBox" Width="120" VerticalAlignment="Center" Text="{Binding SalaryPerMonth, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="10" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1" IsEnabled="False"/>
         </Grid>
-        <Button Content="Update" HorizontalAlignment="Left" Margin="10,367,0,0" VerticalAlignment="Top" Width="252" Height="42" FontSize="30"/>
+        <Button Content="Update" HorizontalAlignment="Left" Margin="10,367,0,0" VerticalAlignment="Top" Width="252" Height="42" FontSize="30" Click="Button_Click"/>
 
     </Grid>
 </Window>

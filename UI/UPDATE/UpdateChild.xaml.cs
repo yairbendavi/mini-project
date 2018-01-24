@@ -27,22 +27,14 @@ namespace UI
             InitializeComponent();
             BL = new BL_imp();
 
-            if (BL.GetAllChildren().Count > 0)
+            foreach (Child child in BL.GetAllChildren())
             {
-                foreach (Child child in BL.GetAllChildren())
+                ComboBoxItem item = new ComboBoxItem
                 {
-                    ComboBoxItem item = new ComboBoxItem
-                    {
-                        Content = child.FirstName
-                    };
+                    Content = child.FirstName
+                };
 
-                    this.firstNameCoboBox.Items.Add(item);
-                }
-            }
-            else
-            {
-                MessageBox.Show("The system has no children, update is imposible.");
-                this.Close();
+                this.firstNameCoboBox.Items.Add(item);
             }
         }
 
@@ -55,7 +47,7 @@ namespace UI
             {
                 BL.UpdateChild(child);
             }
-            catch(Exception E)
+            catch (Exception E)
             {
                 MessageBox.Show(E.Message);
             }

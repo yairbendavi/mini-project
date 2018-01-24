@@ -21,9 +21,36 @@ namespace UI
     /// </summary>
     public partial class UpdateMother : Window
     {
+        IBL BL;
         public UpdateMother()
         {
             InitializeComponent();
+            BL = new BL_imp();
+
+            foreach (Mother mother in BL.GetAllMothers())
+            {
+                ComboBoxItem item = new ComboBoxItem
+                {
+                    Content = mother.Id
+                };
+
+                this.firstNameComboBox.Items.Add(item);
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Mother mother = new Mother();
+            this.DataContext = mother;
+
+            try
+            {
+                BL.UpdateMother(mother);
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+            }
         }
     }
 }
