@@ -23,3 +23,15 @@ C:\Users\haddad\Source\Repos\mini-project\BL\obj\Debug\BL.csprojResolveAssemblyR
 C:\Users\haddad\Source\Repos\mini-project\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
 C:\Users\haddad\Source\Repos\mini-project\BL\obj\Debug\BL.dll
 C:\Users\haddad\Source\Repos\mini-project\BL\obj\Debug\BL.pdb
+C:\Users\INSPIRON\Source\Repos\mini-project\BL\bin\Debug\BL.dll
+C:\Users\INSPIRON\Source\Repos\mini-project\BL\bin\Debug\BL.pdb
+C:\Users\INSPIRON\Source\Repos\mini-project\BL\bin\Debug\BE.dll
+C:\Users\INSPIRON\Source\Repos\mini-project\BL\bin\Debug\DAL.dll
+C:\Users\INSPIRON\Source\Repos\mini-project\BL\bin\Debug\GoogleMapsApi.dll
+C:\Users\INSPIRON\Source\Repos\mini-project\BL\bin\Debug\DS.dll
+C:\Users\INSPIRON\Source\Repos\mini-project\BL\bin\Debug\BE.pdb
+C:\Users\INSPIRON\Source\Repos\mini-project\BL\bin\Debug\DAL.pdb
+C:\Users\INSPIRON\Source\Repos\mini-project\BL\bin\Debug\DS.pdb
+C:\Users\INSPIRON\Source\Repos\mini-project\BL\obj\Debug\BL.csprojResolveAssemblyReference.cache
+C:\Users\INSPIRON\Source\Repos\mini-project\BL\obj\Debug\BL.dll
+C:\Users\INSPIRON\Source\Repos\mini-project\BL\obj\Debug\BL.pdb

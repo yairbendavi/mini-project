@@ -192,7 +192,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Remove.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="supernanny.png" />
   </ItemGroup>
