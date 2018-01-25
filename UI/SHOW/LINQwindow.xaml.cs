@@ -26,23 +26,30 @@ namespace UI
     {
         IBL bl = new BL_imp();
         #region Lists
-        public List<Nanny> GetAllNannies { get; set; }
-        public List<Child> GetAllChildren { get; set; }
-        public List<Mother> GetAllMothers { get; set; }
-        public List<Contract> GetAllContracts { get; set; }
+        public ObservableCollection<Nanny> GetAllNannies { get; set; }
+        public ObservableCollection<Child> GetAllChildren { get; set; }
+        public ObservableCollection<Mother> GetAllMothers { get; set; }
+        public ObservableCollection<Contract> GetAllContracts { get; set; }
 
-        public List<Nanny> GroupByChildrenAge { get; set; }
-        public List<Contract> ShowAllSignedContracts { get; set; }
+        public ObservableCollection<Nanny> GroupByChildrenAge { get; set; }
+        public ObservableCollection<Contract> ShowAllSignedContracts { get; set; }
 
-        public List<Nanny> ShowAllTAMATNannies { get; set; }
-        public List<Contract> GroupAllContractsByDistance { get; set; }
-        public List<Child> ShowAllChildrenWithoutNanny { get; set; }
+        public ObservableCollection<Nanny> ShowAllTAMATNannies { get; set; }
+        public ObservableCollection<Contract> GroupAllContractsByDistance { get; set; }
+        public ObservableCollection<Child> ShowAllChildrenWithoutNanny { get; set; }
         #endregion
         public LINQwindow()
         {
             InitializeComponent();
-            GroupByChildrenAge = new List<Nanny>();
-            GroupAllContractsByDistance = new List<Contract>();
+            GroupByChildrenAge = new ObservableCollection<Nanny>();
+            ShowAllSignedContracts = new ObservableCollection<Contract>();
+            GroupAllContractsByDistance = new ObservableCollection<Contract>();
+            ShowAllTAMATNannies = new ObservableCollection<Nanny>();
+            ShowAllChildrenWithoutNanny = new ObservableCollection<Child>();
+            GetAllChildren = new ObservableCollection<Child>();
+            GetAllMothers = new ObservableCollection<Mother>();
+            GetAllNannies = new ObservableCollection<Nanny>();
+            GetAllContracts = new ObservableCollection<Contract>();
 
             GetAllChildrenWithoutNannyListView.DataContext = this;
             GroupAllContractsByDistanceListView.DataContext = this;
@@ -60,22 +67,26 @@ namespace UI
             switch (Button1.Content.ToString())
             {
                 case "Show all nannies":
-                    GetAllNannies = bl.GetAllNannys();
+                    foreach (var item in bl.GetAllNannys())
+                        GetAllNannies.Add(item);
                     CleanGrid();
                     ShowAllNanniesListView.Visibility = Visibility.Visible;
                     break;
                 case "Show all children":
-                    //GetAllChildren = bl.GetAllChildren();
+                    foreach (var item in bl.GetAllChildren())
+                        GetAllChildren.Add(item);
                     CleanGrid();
                     ShowAllChildrenListView.Visibility = Visibility.Visible;
                     break;
                 case "Show all mothers":
-                    GetAllMothers = bl.GetAllMothers();
+                    foreach (var item in bl.GetAllMothers())
+                        GetAllMothers.Add(item);
                     CleanGrid();
                     ShowAllMothersListView.Visibility = Visibility.Visible;
                     break;
                 case "Show all contracts":
-                    GetAllContracts = bl.GetAllContracts();
+                    foreach (var item in bl.GetAllContracts())
+                        GetAllContracts.Add(item);
                     CleanGrid();
                     ShowAllContractsListView.Visibility = Visibility.Visible;
                     break;
@@ -93,7 +104,8 @@ namespace UI
                     GroupByChildrenAgeListView.Visibility = Visibility.Visible;
                     break;
                 case "Show all signed contracts":
-                    ShowAllSignedContracts = bl.GetContractsByCondition(x => x.IsSigned == true).ToList<Contract>();
+                    foreach (var item in bl.GetContractsByCondition(x => x.IsSigned == true))
+                        ShowAllSignedContracts.Add(item);                    
                     CleanGrid();
                     SignedContractsListView.Visibility = Visibility.Visible;
                     break;
@@ -104,12 +116,14 @@ namespace UI
             switch (Button3.Content.ToString())
             {
                 case "Show all TAMAT nannies":
-                    ShowAllTAMATNannies = bl.GetTamatNannys().ToList<Nanny>();
+                    foreach (var item in bl.GetTamatNannys())
+                        ShowAllTAMATNannies.Add(item);
                     CleanGrid();
                     ShowAllTamatListView.Visibility = Visibility.Visible;
                     break;
                 case "Show all children without nanny":
-                    ShowAllChildrenWithoutNanny = bl.GetChildrenWithoutNanny().ToList<Child>();
+                    foreach (var item in bl.GetChildrenWithoutNanny())
+                        ShowAllChildrenWithoutNanny.Add(item);
                     CleanGrid();
                     GetAllChildrenWithoutNannyListView.Visibility = Visibility.Visible;
                     break;
@@ -197,5 +211,5 @@ namespace UI
             throw new NotImplementedException();
         }
     }
-    #endregion
+    #endregion    
 }

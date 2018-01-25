@@ -22,10 +22,13 @@ namespace UI
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region wins
+
+        #endregion
 
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();         
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
@@ -38,7 +41,7 @@ namespace UI
         }
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            new UpdateEntities().Show();
+            new UpdateEntities().Show()
         }
         private void LinqButton_Click(object sender, RoutedEventArgs e)
         {
