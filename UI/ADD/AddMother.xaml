@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         xmlns:UserControl1="clr-namespace:UI.GOOGLE"
+        xmlns:extToolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit/extended"
         mc:Ignorable="d"
         Title="AddMother" Height="430" Width="680">
 
@@ -71,153 +72,34 @@
             <Label Content="Is working?" Grid.Row="0" Grid.Column="1"/>
             <Label Content="Beginning time" Grid.Row="0" Grid.Column="2"/>
             <Label Content="End time" Grid.Row="0" Grid.Column="3"/>
-            <CheckBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment ="Center"/>
-            <CheckBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment ="Center"/>
-            <CheckBox Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment ="Center"/>
-            <CheckBox Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment ="Center"/>
-            <CheckBox Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment ="Center"/>
-            <CheckBox Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment ="Center"/>
-            <CheckBox Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment ="Center"/>
-            <Grid Grid.Row="1" Grid.Column="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="12"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Label Content=":" Grid.Column="1" FontSize="18"/>
-                <TextBox Grid.Column="0"/>
-                <TextBox Grid.Column="2"/>
-            </Grid>
-            <Grid Grid.Row="2" Grid.Column="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="12"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Label Content=":" Grid.Column="1" FontSize="18"/>
-                <TextBox Grid.Column="0"/>
-                <TextBox Grid.Column="2"/>
-            </Grid>
-            <Grid Grid.Row="3" Grid.Column="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="12"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Label Content=":" Grid.Column="1" FontSize="18"/>
-                <TextBox Grid.Column="0"/>
-                <TextBox Grid.Column="2"/>
-            </Grid>
-            <Grid Grid.Row="4" Grid.Column="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="12"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Label Content=":" Grid.Column="1" FontSize="18"/>
-                <TextBox Grid.Column="0"/>
-                <TextBox Grid.Column="2"/>
-            </Grid>
-            <Grid Grid.Row="5" Grid.Column="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="12"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Label Content=":" Grid.Column="1" FontSize="18"/>
-                <TextBox Grid.Column="0"/>
-                <TextBox Grid.Column="2"/>
-            </Grid>
-            <Grid Grid.Row="6" Grid.Column="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="12"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Label Content=":" Grid.Column="1" FontSize="18"/>
-                <TextBox Grid.Column="0"/>
-                <TextBox Grid.Column="2"/>
-            </Grid>
-            <Grid Grid.Row="7" Grid.Column="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="12"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Label Content=":" Grid.Column="1" FontSize="18"/>
-                <TextBox Grid.Column="0"/>
-                <TextBox Grid.Column="2"/>
-            </Grid>
-            <Grid Grid.Row="1" Grid.Column="3">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="12"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Label Content=":" Grid.Column="1" FontSize="18"/>
-                <TextBox Grid.Column="0"/>
-                <TextBox Grid.Column="2"/>
-            </Grid>
-            <Grid Grid.Row="2" Grid.Column="3">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="12"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Label Content=":" Grid.Column="1" FontSize="18"/>
-                <TextBox Grid.Column="0"/>
-                <TextBox Grid.Column="2"/>
-            </Grid>
-            <Grid Grid.Row="3" Grid.Column="3">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="12"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Label Content=":" Grid.Column="1" FontSize="18"/>
-                <TextBox Grid.Column="0"/>
-                <TextBox Grid.Column="2"/>
-            </Grid>
-            <Grid Grid.Row="4" Grid.Column="3">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="12"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Label Content=":" Grid.Column="1" FontSize="18"/>
-                <TextBox Grid.Column="0"/>
-                <TextBox Grid.Column="2"/>
-            </Grid>
-            <Grid Grid.Row="5" Grid.Column="3">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="12"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Label Content=":" Grid.Column="1" FontSize="18"/>
-                <TextBox Grid.Column="0"/>
-                <TextBox Grid.Column="2"/>
-            </Grid>
-            <Grid Grid.Row="6" Grid.Column="3">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="12"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Label Content=":" Grid.Column="1" FontSize="18"/>
-                <TextBox Grid.Column="0"/>
-                <TextBox Grid.Column="2"/>
-            </Grid>
-            <Grid Grid.Row="7" Grid.Column="3">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="12"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Label Content=":" Grid.Column="1" FontSize="18"/>
-                <TextBox Grid.Column="0"/>
-                <TextBox Grid.Column="2"/>
-            </Grid>
+
+            <CheckBox x:Name="CB1" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment ="Center"/>
+            <CheckBox x:Name="CB2" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment ="Center"/>
+            <CheckBox x:Name="CB3" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment ="Center"/>
+            <CheckBox x:Name="CB4" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment ="Center"/>
+            <CheckBox x:Name="CB5" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment ="Center"/>
+            <CheckBox x:Name="CB6" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment ="Center"/>
+            <CheckBox x:Name="CB7" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment ="Center"/>
+
+
+            <extToolkit:TimePicker Grid.Column="2" Grid.Row="1" IsEnabled="{Binding ElementName=CB1, Path=IsChecked}"/>
+            <extToolkit:TimePicker Grid.Column="2" Grid.Row="2" IsEnabled="{Binding ElementName=CB2, Path=IsChecked}"/>
+            <extToolkit:TimePicker Grid.Column="2" Grid.Row="3" IsEnabled="{Binding ElementName=CB3, Path=IsChecked}"/>
+            <extToolkit:TimePicker Grid.Column="2" Grid.Row="4" IsEnabled="{Binding ElementName=CB4, Path=IsChecked}"/>
+            <extToolkit:TimePicker Grid.Column="2" Grid.Row="5" IsEnabled="{Binding ElementName=CB5, Path=IsChecked}"/>
+            <extToolkit:TimePicker Grid.Column="2" Grid.Row="6" IsEnabled="{Binding ElementName=CB6, Path=IsChecked}"/>
+            <extToolkit:TimePicker Grid.Column="2" Grid.Row="7" IsEnabled="{Binding ElementName=CB7, Path=IsChecked}"/>
+
+            <extToolkit:TimePicker Grid.Column="3" Grid.Row="1" IsEnabled="{Binding ElementName=CB1, Path=IsChecked}"/>
+            <extToolkit:TimePicker Grid.Column="3" Grid.Row="2" IsEnabled="{Binding ElementName=CB2, Path=IsChecked}"/>
+            <extToolkit:TimePicker Grid.Column="3" Grid.Row="3" IsEnabled="{Binding ElementName=CB3, Path=IsChecked}"/>
+            <extToolkit:TimePicker Grid.Column="3" Grid.Row="4" IsEnabled="{Binding ElementName=CB4, Path=IsChecked}"/>
+            <extToolkit:TimePicker Grid.Column="3" Grid.Row="5" IsEnabled="{Binding ElementName=CB5, Path=IsChecked}"/>
+            <extToolkit:TimePicker Grid.Column="3" Grid.Row="6" IsEnabled="{Binding ElementName=CB6, Path=IsChecked}"/>
+            <extToolkit:TimePicker Grid.Column="3" Grid.Row="7" IsEnabled="{Binding ElementName=CB7, Path=IsChecked}"/>
+
+
+           
         </Grid>
         <Button Content="Add" HorizontalAlignment="Left" Margin="3,68,-384,-55" Grid.Row="8" VerticalAlignment="Top" Width="649" Grid.ColumnSpan="2" Height="45" Click="Button_Click"/>
 
