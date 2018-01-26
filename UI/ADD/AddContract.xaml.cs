@@ -30,6 +30,16 @@ namespace UI
             BL = new BL_imp();
             contract = new Contract();
             this.DataContext = contract;
+
+            foreach (var nanny in BL.GetAllNannys())
+            {
+                ComboBoxItem item = new ComboBoxItem
+                {
+                    Content = nanny.Id
+                };
+
+                this.NannyIdComboBox.Items.Add(item);
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

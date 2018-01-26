@@ -41,7 +41,7 @@ namespace UI
         }
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            new UpdateEntities().Show()
+            new UpdateEntities().Show();
         }
         private void LinqButton_Click(object sender, RoutedEventArgs e)
         {

@@ -58,7 +58,7 @@
         <TextBox x:Name="maxChildrenTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="9" Text="{Binding MaxChildren, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
         <Label Content="Min Age:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="10" VerticalAlignment="Center"/>
         <TextBox x:Name="minAgeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="10" Text="{Binding MinAge, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-        <Label Content="Number Of Children:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="11" VerticalAlignment="Center" IsEnabled="False"/>
+        <Label Content="Number Of Children:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="11" VerticalAlignment="Center" IsEnabled="False" Foreground="Black"/>
         <TextBox x:Name="numberOfChildrenTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="11" Text="{Binding NumberOfChildren, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
         <Label Content="Recommendations:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="12" VerticalAlignment="Center"/>
         <TextBox x:Name="recommendationsTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="12" Text="{Binding Recommendations, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
@@ -110,21 +110,21 @@
             <CheckBox x:Name="CB7" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment ="Center"/>
 
 
-            <extToolkit:TimePicker Grid.Column="2" Grid.Row="1" IsEnabled="{Binding ElementName=CB1, Path=IsChecked}"/>
-            <extToolkit:TimePicker Grid.Column="2" Grid.Row="2" IsEnabled="{Binding ElementName=CB2, Path=IsChecked}"/>
-            <extToolkit:TimePicker Grid.Column="2" Grid.Row="3" IsEnabled="{Binding ElementName=CB3, Path=IsChecked}"/>
-            <extToolkit:TimePicker Grid.Column="2" Grid.Row="4" IsEnabled="{Binding ElementName=CB4, Path=IsChecked}"/>
-            <extToolkit:TimePicker Grid.Column="2" Grid.Row="5" IsEnabled="{Binding ElementName=CB5, Path=IsChecked}"/>
-            <extToolkit:TimePicker Grid.Column="2" Grid.Row="6" IsEnabled="{Binding ElementName=CB6, Path=IsChecked}"/>
-            <extToolkit:TimePicker Grid.Column="2" Grid.Row="7" IsEnabled="{Binding ElementName=CB7, Path=IsChecked}"/>
+            <extToolkit:TimePicker Name="sundayBegT" Grid.Column="2" Grid.Row="1" IsEnabled="{Binding ElementName=CB1, Path=IsChecked}"/>
+            <extToolkit:TimePicker Name="mondayBegT" Grid.Column="2" Grid.Row="2" IsEnabled="{Binding ElementName=CB2, Path=IsChecked}"/>
+            <extToolkit:TimePicker Name="tuesdayBegT" Grid.Column="2" Grid.Row="3" IsEnabled="{Binding ElementName=CB3, Path=IsChecked}"/>
+            <extToolkit:TimePicker Name="wednesdayBegT" Grid.Column="2" Grid.Row="4" IsEnabled="{Binding ElementName=CB4, Path=IsChecked}"/>
+            <extToolkit:TimePicker Name="thursdayBegT" Grid.Column="2" Grid.Row="5" IsEnabled="{Binding ElementName=CB5, Path=IsChecked}"/>
+            <extToolkit:TimePicker Name="fridayBegT" Grid.Column="2" Grid.Row="6" IsEnabled="{Binding ElementName=CB6, Path=IsChecked}"/>
+            <extToolkit:TimePicker Name="saturdayBegT" Grid.Column="2" Grid.Row="7" IsEnabled="{Binding ElementName=CB7, Path=IsChecked}"/>
 
-            <extToolkit:TimePicker Grid.Column="3" Grid.Row="1" IsEnabled="{Binding ElementName=CB1, Path=IsChecked}"/>
-            <extToolkit:TimePicker Grid.Column="3" Grid.Row="2" IsEnabled="{Binding ElementName=CB2, Path=IsChecked}"/>
-            <extToolkit:TimePicker Grid.Column="3" Grid.Row="3" IsEnabled="{Binding ElementName=CB3, Path=IsChecked}"/>
-            <extToolkit:TimePicker Grid.Column="3" Grid.Row="4" IsEnabled="{Binding ElementName=CB4, Path=IsChecked}"/>
-            <extToolkit:TimePicker Grid.Column="3" Grid.Row="5" IsEnabled="{Binding ElementName=CB5, Path=IsChecked}"/>
-            <extToolkit:TimePicker Grid.Column="3" Grid.Row="6" IsEnabled="{Binding ElementName=CB6, Path=IsChecked}"/>
-            <extToolkit:TimePicker Grid.Column="3" Grid.Row="7" IsEnabled="{Binding ElementName=CB7, Path=IsChecked}"/>
+            <extToolkit:TimePicker Name="sundayEndT" Grid.Column="3" Grid.Row="1" IsEnabled="{Binding ElementName=CB1, Path=IsChecked}"/>
+            <extToolkit:TimePicker Name="mondayEndT" Grid.Column="3" Grid.Row="2" IsEnabled="{Binding ElementName=CB2, Path=IsChecked}"/>
+            <extToolkit:TimePicker Name="tuesdayEndT" Grid.Column="3" Grid.Row="3" IsEnabled="{Binding ElementName=CB3, Path=IsChecked}"/>
+            <extToolkit:TimePicker Name="wednesdayEndT" Grid.Column="3" Grid.Row="4" IsEnabled="{Binding ElementName=CB4, Path=IsChecked}"/>
+            <extToolkit:TimePicker Name="thursdayEndT" Grid.Column="3" Grid.Row="5" IsEnabled="{Binding ElementName=CB5, Path=IsChecked}"/>
+            <extToolkit:TimePicker Name="fridayEndT" Grid.Column="3" Grid.Row="6" IsEnabled="{Binding ElementName=CB6, Path=IsChecked}"/>
+            <extToolkit:TimePicker Name="saturdayEndT" Grid.Column="3" Grid.Row="7" IsEnabled="{Binding ElementName=CB7, Path=IsChecked}"/>
         </Grid>
         <Button Content="Add" HorizontalAlignment="Left" Margin="224,3,-350,0" Grid.Row="14" VerticalAlignment="Top" Width="258" Height="98" FontSize="32" Grid.Column="1" Grid.RowSpan="4" Click="Button_Click">
             <Button.Resources>

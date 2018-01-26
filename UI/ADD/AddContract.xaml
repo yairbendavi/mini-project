@@ -34,7 +34,7 @@
             <DatePicker x:Name="endingDateDatePicker" VerticalAlignment="Center" SelectedDate="{Binding EndingDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
             <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Is Signed:"/>
             <CheckBox x:Name="isSignedCheckBox" VerticalAlignment="Center" Grid.Row="3" Margin="3" IsChecked="{Binding IsSigned, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Grid.Column="1" Content=""/>
-            <Label VerticalAlignment="Center" Grid.Row="4" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Per Month Or Hour:"/>
+            <Label VerticalAlignment="Center" Grid.Row="4" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Salary Per Hour:"/>
             <CheckBox x:Name="perMonthOrHourCheckBox" VerticalAlignment="Center" Grid.Row="4" Margin="3" IsChecked="{Binding PerMonthOrHour, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Grid.Column="1" Content=""/>
             <Label VerticalAlignment="Center" Grid.Row="5" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Salary Per Hour:"/>
             <TextBox x:Name="salaryPerHourTextBox" Width="120" VerticalAlignment="Center" Text="{Binding SalaryPerHour, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="5" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
@@ -45,7 +45,8 @@
             <Label VerticalAlignment="Center" Grid.Row="9" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Nanny ID:"/>
             <TextBox x:Name="nannyIdTextBox" Width="120" VerticalAlignment="Center" Text="{Binding Nanny.Id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="8" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
             <Label VerticalAlignment="Center" Grid.Row="8" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Mother ID:"/>
-            <TextBox x:Name="motherIdTextBox" Width="120" VerticalAlignment="Center" Text="{Binding Mother.Id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="9" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+            <ComboBox Name="NannyIdComboBox" Grid.Row="9" Grid.Column="1"/>
+
             <Label VerticalAlignment="Center" Grid.Row="10" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Child ID:"/>
             <TextBox x:Name="childIdTextBox" Width="120" VerticalAlignment="Center" Text="{Binding Child.Id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="10" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
         </Grid>

@@ -304,6 +304,8 @@ namespace BE
 
         public Nanny()
         {
+            for (int i = 0; i < 7; i++)
+                workingHours[i] = new HoursRange(new DateTime(), new DateTime());
         }
 
         // returns a string that describes the mother.

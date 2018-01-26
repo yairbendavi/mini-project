@@ -32,7 +32,7 @@
             <Label VerticalAlignment="Center" Grid.Row="4" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Mother Id:"/>
             <TextBox x:Name="motherIdTextBox" Width="120" VerticalAlignment="Center" Text="{Binding MotherId, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="4" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
             <Label VerticalAlignment="Center" Grid.Row="5" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Special Needs:"/>
-            <TextBox x:Name="specialNeedsTextBox" Width="120" VerticalAlignment="Center" Text="{Binding SpecialNeeds, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="5" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+            <TextBox x:Name="specialNeedsTextBox" Width="120" VerticalAlignment="Center" Text="{Binding SpecialNeeds, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="5" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1" IsEnabled="{Binding ElementName=isThereSpecialNeedsCheckBox, Path=IsChecked}"/>
         </Grid>
         <Button Content="Add" HorizontalAlignment="Left" Margin="10,207,0,0" VerticalAlignment="Top" Width="272" Height="52" FontSize="32" Click="Button_Click"/>
 
