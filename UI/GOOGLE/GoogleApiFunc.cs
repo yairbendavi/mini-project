@@ -17,14 +17,17 @@ namespace UI.GOOGLE
     }
     class GoogleApiFunc
     {
+#pragma warning disable CS0618 // Type or member is obsolete
         static string API_KEY = ConfigurationSettings.AppSettings.Get("googleApiKey");
+#pragma warning restore CS0618 // Type or member is obsolete
         public static List<string> GetPlaceAutoComplete(string str)
         {
             List<string> result = new List<string>();
-            GoogleMapsApi.Entities.PlaceAutocomplete.Request.PlaceAutocompleteRequest request = new GoogleMapsApi.Entities.PlaceAutocomplete.Request.PlaceAutocompleteRequest();
-            request.ApiKey = API_KEY;
-            request.Input = str;
-
+            GoogleMapsApi.Entities.PlaceAutocomplete.Request.PlaceAutocompleteRequest request = new GoogleMapsApi.Entities.PlaceAutocomplete.Request.PlaceAutocompleteRequest()
+            {
+                ApiKey = API_KEY,
+                Input = str
+            };
             var response = GoogleMaps.PlaceAutocomplete.Query(request);
 
             foreach (var item in response.Results)
