@@ -28,22 +28,22 @@ namespace UI
 
         private void AddNannyButton_Click(object sender, RoutedEventArgs e)
         {
-            new AddNanny().Show();
+            new AddNanny().ShowDialog();
             this.Close();
         }
         private void AddMotherButton_Click(object sender, RoutedEventArgs e)
         {
-            new AddMother().Show();
+            new AddMother().ShowDialog();
             this.Close();
         }
         private void AddChildButton_Click(object sender, RoutedEventArgs e)
         {
-            new AddChild().Show();
+            new AddChild().ShowDialog();
             this.Close();
         }
         private void AddContractButton_Click(object sender, RoutedEventArgs e)
         {
-            new AddContract().Show();
+            new AddContract().ShowDialog();
             this.Close();
         }
     }

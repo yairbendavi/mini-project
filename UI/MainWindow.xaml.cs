@@ -33,19 +33,19 @@ namespace UI
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            new AddEntities().Show();
+            new AddEntities().ShowDialog();
         }
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            new DeleteEntity().Show();
+            new DeleteEntity().ShowDialog();
         }
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            new UpdateEntities().Show();
+            new UpdateEntities().ShowDialog();
         }
         private void LinqButton_Click(object sender, RoutedEventArgs e)
         {
-            new LINQwindow().Show();
+            new LINQwindow().ShowDialog();
         }
     }
 }
