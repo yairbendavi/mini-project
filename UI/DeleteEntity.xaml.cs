@@ -31,7 +31,7 @@ namespace UI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (this.EntityPicker.Text == "Nanny")
+            if (this.EntityPicker.Text == "System.Windows.Controls.ComboBoxItem: Nanny")
             {
                 try
                 {
@@ -42,7 +42,7 @@ namespace UI
                     MessageBox.Show(E.Message);
                 }
             }
-            else if (this.EntityPicker.Text == "Mother")
+            else if (this.EntityPicker.Text == "System.Windows.Controls.ComboBoxItem: Mother")
             {
                 try
                 {
@@ -53,7 +53,7 @@ namespace UI
                     MessageBox.Show(E.Message);
                 }
             }
-            else if (this.EntityPicker.Text == "Child")
+            else if (this.EntityPicker.Text == "System.Windows.Controls.ComboBoxItem: Child")
             {
                 try
                 {
@@ -64,7 +64,7 @@ namespace UI
                     MessageBox.Show(E.Message);
                 }
             }
-            else if (this.EntityPicker.Text == "Contract")
+            else if (this.EntityPicker.Text == "System.Windows.Controls.ComboBoxItem: Contract")
             {
                 try
                 {

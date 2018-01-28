@@ -67,24 +67,28 @@ namespace UI
             switch (Button1.Content.ToString())
             {
                 case "Show all nannies":
+                    GetAllNannies.Clear();
                     foreach (var item in bl.GetAllNannys())
                         GetAllNannies.Add(item);
                     CleanGrid();
                     ShowAllNanniesListView.Visibility = Visibility.Visible;
                     break;
                 case "Show all children":
+                    GetAllChildren.Clear();
                     foreach (var item in bl.GetAllChildren())
                         GetAllChildren.Add(item);
                     CleanGrid();
                     ShowAllChildrenListView.Visibility = Visibility.Visible;
                     break;
                 case "Show all mothers":
+                    GetAllMothers.Clear();
                     foreach (var item in bl.GetAllMothers())
                         GetAllMothers.Add(item);
                     CleanGrid();
                     ShowAllMothersListView.Visibility = Visibility.Visible;
                     break;
                 case "Show all contracts":
+                    GetAllContracts.Clear();
                     foreach (var item in bl.GetAllContracts())
                         GetAllContracts.Add(item);
                     CleanGrid();
@@ -97,6 +101,7 @@ namespace UI
             switch (Button2.Content.ToString())
             {
                 case "Group by children age":
+                    GroupByChildrenAge.Clear();
                     foreach (var item in bl.GetNannysGroupedByChildrenAge(true))
                         foreach (var nanny in item)
                             GroupByChildrenAge.Add(nanny);
@@ -104,6 +109,7 @@ namespace UI
                     GroupByChildrenAgeListView.Visibility = Visibility.Visible;
                     break;
                 case "Show all signed contracts":
+                    ShowAllSignedContracts.Clear();
                     foreach (var item in bl.GetContractsByCondition(x => x.IsSigned == true))
                         ShowAllSignedContracts.Add(item);                    
                     CleanGrid();
@@ -116,18 +122,21 @@ namespace UI
             switch (Button3.Content.ToString())
             {
                 case "Show all TAMAT nannies":
+                    ShowAllTAMATNannies.Clear();
                     foreach (var item in bl.GetTamatNannys())
                         ShowAllTAMATNannies.Add(item);
                     CleanGrid();
                     ShowAllTamatListView.Visibility = Visibility.Visible;
                     break;
                 case "Show all children without nanny":
+                    ShowAllChildrenWithoutNanny.Clear();
                     foreach (var item in bl.GetChildrenWithoutNanny())
                         ShowAllChildrenWithoutNanny.Add(item);
                     CleanGrid();
                     GetAllChildrenWithoutNannyListView.Visibility = Visibility.Visible;
                     break;
                 case "Group all contracts by distance":
+                    GroupAllContractsByDistance.Clear();
                     foreach (var item in bl.GetContractsGroupedByDistance())
                         foreach (var ctr in item)
                             GroupAllContractsByDistance.Add(ctr);

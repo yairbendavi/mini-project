@@ -22,10 +22,15 @@ namespace UI
     public partial class UpdateMother : Window
     {
         IBL BL;
+        Mother mother;
+        
         public UpdateMother()
         {
             InitializeComponent();
             BL = new BL_imp();
+
+            mother = new Mother();
+            this.DataContext = mother;
 
             foreach (Mother mother in BL.GetAllMothers())
             {
@@ -40,12 +45,50 @@ namespace UI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Mother mother = new Mother();
-            this.DataContext = mother;
-
             try
             {
+                mother.RequiredDays[0] = CB1.IsChecked.Value;
+                mother.RequiredDays[1] = CB2.IsChecked.Value;
+                mother.RequiredDays[2] = CB3.IsChecked.Value;
+                mother.RequiredDays[3] = CB4.IsChecked.Value;
+                mother.RequiredDays[4] = CB5.IsChecked.Value;
+                mother.RequiredDays[5] = CB6.IsChecked.Value;
+                mother.RequiredDays[6] = CB7.IsChecked.Value;
+
+                if (CB1.IsChecked.Value)
+                    mother.RequiredHours[0].BeginingTime = (DateTime)sundayBegT.Value;
+                if (CB2.IsChecked.Value)
+                    mother.RequiredHours[1].BeginingTime = (DateTime)mondayBegT.Value;
+                if (CB3.IsChecked.Value)
+                    mother.RequiredHours[2].BeginingTime = (DateTime)tuesdayBegT.Value;
+                if (CB4.IsChecked.Value)
+                    mother.RequiredHours[3].BeginingTime = (DateTime)wednesdayBegT.Value;
+                if (CB5.IsChecked.Value)
+                    mother.RequiredHours[4].BeginingTime = (DateTime)thursdayBegT.Value;
+                if (CB6.IsChecked.Value)
+                    mother.RequiredHours[5].BeginingTime = (DateTime)fridayBegT.Value;
+                if (CB7.IsChecked.Value)
+                    mother.RequiredHours[6].BeginingTime = (DateTime)saturdayBegT.Value;
+
+                if (CB1.IsChecked.Value)
+                    mother.RequiredHours[0].EndTime = (DateTime)sundayEndT.Value;
+                if (CB2.IsChecked.Value)
+                    mother.RequiredHours[1].EndTime = (DateTime)mondayEndT.Value;
+                if (CB3.IsChecked.Value)
+                    mother.RequiredHours[2].EndTime = (DateTime)tuesdayEndT.Value;
+                if (CB4.IsChecked.Value)
+                    mother.RequiredHours[3].EndTime = (DateTime)wednesdayEndT.Value;
+                if (CB5.IsChecked.Value)
+                    mother.RequiredHours[4].EndTime = (DateTime)thursdayEndT.Value;
+                if (CB6.IsChecked.Value)
+                    mother.RequiredHours[5].EndTime = (DateTime)fridayEndT.Value;
+                if (CB7.IsChecked.Value)
+                    mother.RequiredHours[6].EndTime = (DateTime)saturdayEndT.Value;
+
                 BL.UpdateMother(mother);
+                mother = new Mother();
+                this.DataContext = mother;
+                this.Close();
             }
             catch (Exception E)
             {

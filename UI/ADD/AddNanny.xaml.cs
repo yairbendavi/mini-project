@@ -27,7 +27,8 @@ namespace UI
         public AddNanny()
         {
             InitializeComponent();
-            
+
+            nanny = new Nanny();
             this.DataContext = nanny;
             BL = new BL_imp();
         }
@@ -36,8 +37,6 @@ namespace UI
         {
             try
             {
-                nanny = new Nanny();
-
                 nanny.DaysOfWork[0] = CB1.IsChecked.Value;
                 nanny.DaysOfWork[1] = CB2.IsChecked.Value;
                 nanny.DaysOfWork[2] = CB3.IsChecked.Value;

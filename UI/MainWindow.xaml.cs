@@ -45,7 +45,7 @@ namespace UI
         }
         private void LinqButton_Click(object sender, RoutedEventArgs e)
         {
-            new LINQwindow().ShowDialog();
+            new LINQwindow().ShowDialog();            
         }
     }
 }
