@@ -385,11 +385,6 @@ namespace DAL
             MotherElement.Remove();
             MothersFile.Save(MothersPath);
         }
-        public void UpdateChild(Child child)
-        {
-            DeleteChild(child.Id);
-            AddChild(child);
-        }
         public void DeleteNanny(uint nannyId)
         {
             XElement NannyElement;
@@ -428,6 +423,12 @@ namespace DAL
             throw new NotImplementedException();
         }
 
+
+        public void UpdateChild(Child child)
+        {
+            DeleteChild(child.Id);
+            AddChild(child);
+        }
         public void UpdateContract(Contract contract)
         {
             DeleteContract(contract.ContructNumber);
