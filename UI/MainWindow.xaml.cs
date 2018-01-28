@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace UI
 {
@@ -27,7 +28,7 @@ namespace UI
         #endregion
 
         public MainWindow()
-        {
+        {            
             InitializeComponent();         
         }
 
@@ -46,6 +47,10 @@ namespace UI
         private void LinqButton_Click(object sender, RoutedEventArgs e)
         {
             new LINQwindow().ShowDialog();            
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Environment.Exit(Environment.ExitCode);
         }
     }
 }
