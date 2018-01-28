@@ -804,7 +804,9 @@ namespace BE
             }
             set
             {
-                beginingTime = new DateTime(0, 0, 0, value.Year, value.Month, value.Day);
+                beginingTime = beginingTime.AddSeconds(value.Second);
+                beginingTime = beginingTime.AddMinutes(value.Minute);
+                beginingTime = beginingTime.AddHours(value.Hour);
             }
         }
 
@@ -817,7 +819,9 @@ namespace BE
             }
             set
             {
-                endTime = new DateTime(0, 0, 0, value.Hour, value.Minute, value.Second);
+                endTime = endTime.AddSeconds(value.Second);
+                endTime = endTime.AddMinutes(value.Minute);
+                endTime = endTime.AddHours(value.Hour);
             }
         }
 
