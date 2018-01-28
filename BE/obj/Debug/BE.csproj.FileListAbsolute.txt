@@ -18,3 +18,8 @@ C:\Users\haddad\Desktop\mini-project\BE\obj\Debug\BE.csproj.CoreCompileInputs.ca
 C:\Users\haddad\Desktop\mini-project\BE\obj\Debug\BE.dll
 C:\Users\haddad\Desktop\mini-project\BE\obj\Debug\BE.pdb
 C:\Users\INSPIRON\Source\Repos\mini-project\BE\obj\Debug\BE.csprojResolveAssemblyReference.cache
+C:\Users\INSPIRON\Source\Reposistory\mini-project\BE\bin\Debug\BE.dll
+C:\Users\INSPIRON\Source\Reposistory\mini-project\BE\bin\Debug\BE.pdb
+C:\Users\INSPIRON\Source\Reposistory\mini-project\BE\obj\Debug\BE.csprojResolveAssemblyReference.cache
+C:\Users\INSPIRON\Source\Reposistory\mini-project\BE\obj\Debug\BE.dll
+C:\Users\INSPIRON\Source\Reposistory\mini-project\BE\obj\Debug\BE.pdb

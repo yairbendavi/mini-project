@@ -110,7 +110,11 @@ namespace UI
                     break;
                 case "Show all signed contracts":
                     ShowAllSignedContracts.Clear();
-                    foreach (var item in bl.GetContractsByCondition(x => x.IsSigned == true))
+                    foreach (var item in bl.GetContractsByCondition(x =>
+                                                                    {
+                                                                        return (x.IsSigned == true &&
+                                                                              (x.EndingDate - DateTime.Now).TotalSeconds > 0);
+                                                                    }))
                         ShowAllSignedContracts.Add(item);                    
                     CleanGrid();
                     SignedContractsListView.Visibility = Visibility.Visible;

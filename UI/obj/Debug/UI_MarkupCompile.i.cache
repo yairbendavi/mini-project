@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\INSPIRON\Source\Repos\mini-project\UI\obj\Debug\
+C:\Users\INSPIRON\Source\Reposistory\mini-project\UI\obj\Debug\
 UI
 none
 false
 DEBUG;TRACE
-C:\Users\INSPIRON\Source\Repos\mini-project\UI\App.xaml
+C:\Users\INSPIRON\Source\Reposistory\mini-project\UI\App.xaml
 14320388186
 
 23-469768572
-171663586384
+17242761555
 ADD\AddNanny.xaml;ADD\AddMother.xaml;ADD\AddEntities.xaml;ADD\AddContract.xaml;ADD\AddChild.xaml;DeleteEntity.xaml;GOOGLE\PlaceAutoCompleteUC.xaml;SHOW\LINQwindow.xaml;MainWindow.xaml;UPDATE\UpdateNanny.xaml;UPDATE\UpdateMother.xaml;UPDATE\UpdateEntities.xaml;UPDATE\UpdateContract.xaml;UPDATE\UpdateChild.xaml;
 
 True
