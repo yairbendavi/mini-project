@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         xmlns:BE1="clr-namespace:BE;assembly=BE"
-        xmlns:extToolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit/extended" 
+        xmlns:extToolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit/extended"
+        xmlns:UserControl1="clr-namespace:UI.GOOGLE"
         mc:Ignorable="d"
         Title="UpdateNanny" Height="650" Width="700">
 
@@ -35,7 +36,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Label Content="Adress:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
-        <TextBox x:Name="adressTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding Adress, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        <UserControl1:PlaceAutoCompleteUC x:Name="addressTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Grid.Row="3" VerticalAlignment="Center" Width="120" Text="{Binding Adress, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
         <Label Content="Allows Salary Per Hour:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
         <CheckBox x:Name="allowsSalaryPerHourCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding AllowsSalaryPerHour, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
         <Label Content="Birth Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
