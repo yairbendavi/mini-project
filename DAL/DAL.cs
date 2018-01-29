@@ -274,7 +274,13 @@ namespace DAL
         }
         private Nanny XElementToNanny(XElement nanny)
         {
-            throw new NotImplementedException();
+            Nanny nanny1 = new Nanny
+            {
+                Id = uint.Parse(nanny.Element("Id").Value)
+
+            };
+
+            return nanny1;
         }
         private Mother XElementToMother(XElement mother)
         {
@@ -292,7 +298,7 @@ namespace DAL
         public void AddChild(Child child)
         {
             foreach (XElement element in ChildrenFile.Elements())
-                if (uint.Parse(element.Element("id").Value) == child.Id)
+                if (uint.Parse(element.Element("Id").Value) == child.Id)
                     throw new IdException
                     {
                         Message = "A child with this id already exists in the system."
@@ -326,22 +332,22 @@ namespace DAL
         }
         public void AddNanny(Nanny nanny)
         {
-            foreach (XElement element in ContractsFile.Elements())
-                if (uint.Parse(element.Element("ContructNumber").Value) == nanny.Id)
+            foreach (XElement element in NannysFile.Elements())
+                if (uint.Parse(element.Element("Id").Value) == nanny.Id)
                     throw new IdException
                     {
-                        Message = "A contract with this number allredy exists."
+                        Message = "A nanny with this id allredy exists."
                     };
 
-            ContractsFile.Add(ConvertToXElement<Nanny>(nanny));
-            ContractsFile.Save(ContractsPath);
+            NannysFile.Add(ConvertToXElement<Nanny>(nanny));
+            NannysFile.Save(ContractsPath);
         }
 
         public void DeleteChild(uint childId)
         {
             XElement ChildElement;
             ChildElement = (from item in ChildrenFile.Elements()
-                            where uint.Parse(item.Element("id").Value) == childId
+                            where uint.Parse(item.Element("Id").Value) == childId
                             select item).FirstOrDefault();
 
             if (ChildElement == null)
@@ -357,7 +363,7 @@ namespace DAL
         {
             XElement ContractElement;
             ContractElement = (from item in ContractsFile.Elements()
-                               where uint.Parse(item.Element("id").Value) == contractNumber
+                               where uint.Parse(item.Element("ContractNumber").Value) == contractNumber
                                select item).FirstOrDefault();
 
             if (ContractElement == null)
@@ -373,7 +379,7 @@ namespace DAL
         {
             XElement MotherElement;
             MotherElement = (from item in MothersFile.Elements()
-                             where uint.Parse(item.Element("id").Value) == motherId
+                             where uint.Parse(item.Element("Id").Value) == motherId
                              select item).FirstOrDefault();
 
             if (MotherElement == null)
@@ -389,7 +395,7 @@ namespace DAL
         {
             XElement NannyElement;
             NannyElement = (from item in NannysFile.Elements()
-                            where uint.Parse(item.Element("id").Value) == nannyId
+                            where uint.Parse(item.Element("Id").Value) == nannyId
                             select item).FirstOrDefault();
 
             if (NannyElement == null)
@@ -401,28 +407,6 @@ namespace DAL
             NannyElement.Remove();
             NannysFile.Save(NannysPath);
         }
-
-        public List<Child> GetAllChildren()
-        {
-            throw new NotImplementedException();
-        }
-        public List<Child> GetAllChildrenByMother(uint motherId)
-        {
-            throw new NotImplementedException();
-        }
-        public List<Contract> GetAllContracts()
-        {
-            throw new NotImplementedException();
-        }
-        public List<Mother> GetAllMothers()
-        {
-            throw new NotImplementedException();
-        }
-        public List<Nanny> GetAllNannys()
-        {
-            throw new NotImplementedException();
-        }
-
 
         public void UpdateChild(Child child)
         {
@@ -443,6 +427,53 @@ namespace DAL
         {
             DeleteNanny(nanny.Id);
             AddNanny(nanny);
+        }
+
+        public List<Child> GetAllChildren()
+        {
+            List<Child> list = new List<Child>();
+
+            foreach (XElement element in ChildrenFile.Elements())
+                list.Add(XElementToChild(element));
+
+            return list;
+        }
+        public List<Child> GetAllChildrenByMother(uint motherId)
+        {
+            List<Child> list = new List<Child>();
+
+            foreach (XElement element in ChildrenFile.Elements())
+                if (XElementToChild(element).MotherId == motherId)
+                    list.Add(XElementToChild(element));
+
+            return list;
+        }
+        public List<Contract> GetAllContracts()
+        {
+            List<Contract> list = new List<Contract>();
+
+            foreach (XElement element in ContractsFile.Elements())
+                list.Add(XElementToContract(element));
+
+            return list;
+        }
+        public List<Mother> GetAllMothers()
+        {
+            List<Mother> list = new List<Mother>();
+
+            foreach (XElement element in MothersFile.Elements())
+                list.Add(XElementToMother(element));
+
+            return list;
+        }
+        public List<Nanny> GetAllNannys()
+        {
+            List<Nanny> list = new List<Nanny>();
+
+            foreach (XElement element in NannysFile.Elements())
+                list.Add(XElementToNanny(element));
+
+            return list;
         }
     }
 }

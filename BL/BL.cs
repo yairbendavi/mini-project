@@ -13,6 +13,8 @@ namespace BL
 {
     public interface IBL
     {
+        IBL FactoryBL();
+
         void AddNanny(Nanny nanny);
         void DeleteNanny(uint nannyId);
         void UpdateNanny(Nanny nanny);
@@ -59,6 +61,15 @@ namespace BL
 
     public class BL_imp : IBL
     {
+        static IBL BL = null;
+
+        public IBL FactoryBL()
+        {
+            if (BL == null)
+                BL = new BL_imp();
+            return BL;
+        }
+
         private DAL_imp DAL = new DAL_imp();
         /// return whether the nanny works at the hours that the mother needs.
         private bool Fit(Nanny nanny, Mother mother)

@@ -25,7 +25,7 @@ namespace UI
         public UpdateContract()
         {
             InitializeComponent();
-            BL = new BL_imp();
+            BL = BL.FactoryBL();
 
             foreach (Contract contract in BL.GetAllContracts())
             {

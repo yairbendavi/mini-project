@@ -27,7 +27,7 @@ namespace UI
         public UpdateMother()
         {
             InitializeComponent();
-            BL = new BL_imp();
+            BL = BL.FactoryBL();
 
             mother = new Mother();
             this.DataContext = mother;

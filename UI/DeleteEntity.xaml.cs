@@ -26,7 +26,7 @@ namespace UI
         {
             InitializeComponent();
 
-            BL = new BL_imp();
+            BL = BL.FactoryBL();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

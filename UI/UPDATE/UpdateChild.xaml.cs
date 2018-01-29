@@ -25,7 +25,7 @@ namespace UI
         public UpdateChild()
         {
             InitializeComponent();
-            BL = new BL_imp();
+            BL = BL.FactoryBL();
 
             foreach (Child child in BL.GetAllChildren())
             {

@@ -21,13 +21,13 @@ namespace UI
     /// </summary>
     public partial class AddMother : Window
     {
-        BL_imp BL;
+        IBL BL;
         Mother mother;
         public AddMother()
         {
             InitializeComponent();
 
-            BL = new BL_imp();
+            BL = BL.FactoryBL();
             mother = new Mother();
             this.DataContext = mother;
         }

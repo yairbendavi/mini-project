@@ -21,7 +21,7 @@ namespace UI
     /// </summary>
     public partial class AddNanny : Window
     {
-        BL_imp BL;
+        IBL BL;
         Nanny nanny;
 
         public AddNanny()
@@ -30,7 +30,7 @@ namespace UI
 
             nanny = new Nanny();
             this.DataContext = nanny;
-            BL = new BL_imp();
+            BL = BL.FactoryBL();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

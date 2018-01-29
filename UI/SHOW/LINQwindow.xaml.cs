@@ -24,7 +24,7 @@ namespace UI
 
     public partial class LINQwindow : Window
     {
-        IBL bl = new BL_imp();
+        IBL BL;
         #region Lists
         public ObservableCollection<Nanny> GetAllNannies { get; set; }
         public ObservableCollection<Child> GetAllChildren { get; set; }
@@ -41,6 +41,9 @@ namespace UI
         public LINQwindow()
         {
             InitializeComponent();
+
+            BL = BL.FactoryBL();
+
             GroupByChildrenAge = new ObservableCollection<Nanny>();
             ShowAllSignedContracts = new ObservableCollection<Contract>();
             GroupAllContractsByDistance = new ObservableCollection<Contract>();
@@ -68,28 +71,28 @@ namespace UI
             {
                 case "Show all nannies":
                     GetAllNannies.Clear();
-                    foreach (var item in bl.GetAllNannys())
+                    foreach (var item in BL.GetAllNannys())
                         GetAllNannies.Add(item);
                     CleanGrid();
                     ShowAllNanniesListView.Visibility = Visibility.Visible;
                     break;
                 case "Show all children":
                     GetAllChildren.Clear();
-                    foreach (var item in bl.GetAllChildren())
+                    foreach (var item in BL.GetAllChildren())
                         GetAllChildren.Add(item);
                     CleanGrid();
                     ShowAllChildrenListView.Visibility = Visibility.Visible;
                     break;
                 case "Show all mothers":
                     GetAllMothers.Clear();
-                    foreach (var item in bl.GetAllMothers())
+                    foreach (var item in BL.GetAllMothers())
                         GetAllMothers.Add(item);
                     CleanGrid();
                     ShowAllMothersListView.Visibility = Visibility.Visible;
                     break;
                 case "Show all contracts":
                     GetAllContracts.Clear();
-                    foreach (var item in bl.GetAllContracts())
+                    foreach (var item in BL.GetAllContracts())
                         GetAllContracts.Add(item);
                     CleanGrid();
                     ShowAllContractsListView.Visibility = Visibility.Visible;
@@ -102,7 +105,7 @@ namespace UI
             {
                 case "Group by children age":
                     GroupByChildrenAge.Clear();
-                    foreach (var item in bl.GetNannysGroupedByChildrenAge(true))
+                    foreach (var item in BL.GetNannysGroupedByChildrenAge(true))
                         foreach (var nanny in item)
                             GroupByChildrenAge.Add(nanny);
                     CleanGrid();
@@ -110,7 +113,7 @@ namespace UI
                     break;
                 case "Show all signed contracts":
                     ShowAllSignedContracts.Clear();
-                    foreach (var item in bl.GetContractsByCondition(x =>
+                    foreach (var item in BL.GetContractsByCondition(x =>
                                                                     {
                                                                         return (x.IsSigned == true &&
                                                                               (x.EndingDate - DateTime.Now).TotalSeconds > 0);
@@ -127,21 +130,21 @@ namespace UI
             {
                 case "Show all TAMAT nannies":
                     ShowAllTAMATNannies.Clear();
-                    foreach (var item in bl.GetTamatNannys())
+                    foreach (var item in BL.GetTamatNannys())
                         ShowAllTAMATNannies.Add(item);
                     CleanGrid();
                     ShowAllTamatListView.Visibility = Visibility.Visible;
                     break;
                 case "Show all children without nanny":
                     ShowAllChildrenWithoutNanny.Clear();
-                    foreach (var item in bl.GetChildrenWithoutNanny())
+                    foreach (var item in BL.GetChildrenWithoutNanny())
                         ShowAllChildrenWithoutNanny.Add(item);
                     CleanGrid();
                     GetAllChildrenWithoutNannyListView.Visibility = Visibility.Visible;
                     break;
                 case "Group all contracts by distance":
                     GroupAllContractsByDistance.Clear();
-                    foreach (var item in bl.GetContractsGroupedByDistance())
+                    foreach (var item in BL.GetContractsGroupedByDistance())
                         foreach (var ctr in item)
                             GroupAllContractsByDistance.Add(ctr);
                     CleanGrid();
