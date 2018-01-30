@@ -13,8 +13,6 @@ namespace BL
 {
     public interface IBL
     {
-        IBL FactoryBL();
-
         void AddNanny(Nanny nanny);
         void DeleteNanny(uint nannyId);
         void UpdateNanny(Nanny nanny);
@@ -61,15 +59,6 @@ namespace BL
 
     public class BL_imp : IBL
     {
-        static IBL BL = null;
-
-        public IBL FactoryBL()
-        {
-            if (BL == null)
-                BL = new BL_imp();
-            return BL;
-        }
-
         private DAL_imp DAL = new DAL_imp();
         /// return whether the nanny works at the hours that the mother needs.
         private bool Fit(Nanny nanny, Mother mother)
@@ -265,7 +254,14 @@ namespace BL
                     throw E;
                 }
             }
-
+            if (!GetCompatibleNannysByDistance(contract.Mother)
+                .ToList().Exists(x => x.Id == contract.Nanny.Id) ||
+                !GetCompatibleNannys(contract.Mother)
+                .ToList().Exists(x => x.Id == contract.Nanny.Id))
+                throw new IncompatibleParametersException
+                {
+                    Message = "The nanny is not compatible to the mother."
+                };
 
             int brothersWithNanny = GetNumberOfBrothersWithSameNanny
                 (contract.Mother.Id, contract.Nanny.Id);
@@ -352,15 +348,12 @@ namespace BL
         // just like the first function, with a distance condition.         
         public IEnumerable<Nanny> GetCompatibleNannysByDistance(Mother mother)
         {
-            //List<Nanny> list = new List<Nanny>();
-
             var linq = from Nanny item in GetAllNannys()
                        where CalculateDistance(item.Adress, mother.AddressForNanny) <= mother.MaxDistance
                        select item;
 
             foreach (Nanny item in linq)
                 yield return item;
-            //return list;
         }
         // returns a linq of all the children without nanny
         public IEnumerable<Child> GetChildrenWithoutNanny()
@@ -417,12 +410,12 @@ namespace BL
             {
                 linq = from item in GetAllContracts()
                        orderby item.ContructNumber
-                       group item by CalculateDistance(item.Mother.AddressForNanny, item.Nanny.Adress);
+                       group item by CalculateDistance(item.Mother.AddressForNanny, item.Nanny.Adress) / 1000;
             }
             else
             {
                 linq = from item in GetAllContracts()
-                       group item by CalculateDistance(item.Mother.AddressForNanny, item.Nanny.Adress);
+                       group item by CalculateDistance(item.Mother.AddressForNanny, item.Nanny.Adress) / 1000;
             }
 
             return linq;

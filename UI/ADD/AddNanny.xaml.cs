@@ -30,7 +30,7 @@ namespace UI
 
             nanny = new Nanny();
             this.DataContext = nanny;
-            BL = BL.FactoryBL();
+            BL = new BL_imp();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -30,7 +30,9 @@ namespace UI
 
         public MainWindow()
         {
-            InitializeComponent();         
+            InitializeComponent();
+
+            IBL a = new BL_imp();
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)

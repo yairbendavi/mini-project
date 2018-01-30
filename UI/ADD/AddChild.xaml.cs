@@ -28,7 +28,7 @@ namespace UI
         {
             InitializeComponent();
 
-            BL = BL.FactoryBL();
+            BL = new BL_imp();
             child = new Child();
             this.DataContext = child;
         }

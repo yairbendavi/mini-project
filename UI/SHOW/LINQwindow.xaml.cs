@@ -42,7 +42,7 @@ namespace UI
         {
             InitializeComponent();
 
-            BL = BL.FactoryBL();
+            BL = new BL_imp();
 
             GroupByChildrenAge = new ObservableCollection<Nanny>();
             ShowAllSignedContracts = new ObservableCollection<Contract>();

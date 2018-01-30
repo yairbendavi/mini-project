@@ -27,7 +27,7 @@ namespace UI
         {
             InitializeComponent();
 
-            BL = BL.FactoryBL();
+            BL = new BL_imp();
             contract = new Contract();
             this.DataContext = contract;
 

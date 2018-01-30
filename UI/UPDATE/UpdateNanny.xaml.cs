@@ -30,7 +30,7 @@ namespace UI
             nanny = new Nanny();
             this.DataContext = nanny;
 
-            BL = BL.FactoryBL();
+            BL = new BL_imp();
 
             foreach (Nanny nany in BL.GetAllNannys())
             {
