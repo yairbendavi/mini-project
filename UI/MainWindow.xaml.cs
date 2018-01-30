@@ -30,7 +30,7 @@ namespace UI
 
             IBL a = new BL_imp();
             BL_imp b = new BL_imp();
-            b.Initialization();
+           //..b.Initialization();
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)

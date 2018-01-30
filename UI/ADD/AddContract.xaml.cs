@@ -13,6 +13,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Threading;
+using System.ComponentModel;
 
 namespace UI
 {
@@ -23,13 +25,18 @@ namespace UI
     {
         IBL BL;
         Contract contract;
+        BackgroundWorker BackgroundWorker;
+
         public AddContract()
         {
             InitializeComponent();
 
             BL = new BL_imp();
             contract = new Contract();
+            BackgroundWorker = new BackgroundWorker();
             this.DataContext = contract;
+            BackgroundWorker.DoWork += BackgroundWorker_DoWork;
+            BackgroundWorker.RunWorkerCompleted += BackgroundWorker_RunWorkerCompleted;
 
             foreach (var nanny in BL.GetAllNannys())
             {
@@ -44,18 +51,31 @@ namespace UI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            BackgroundWorker.RunWorkerAsync();
+            contract = new Contract();
+            this.DataContext = contract;
+            this.Close();
+        }
+        private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
             try
             {
                 BL.AddContract(contract);
-                contract = new Contract();
-                this.DataContext = contract;
-                this.Close();
+                e.Result = false;
             }
-            catch (Exception E)
+            catch (Exception exc)
             {
-                MessageBox.Show(E.Message);
+                e.Result = exc;
             }
-
         }
+        private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (!(e.Result is bool))
+                MessageBox.Show(((Exception)e.Result).Message);
+        }
+
+
     }
 }
+
+

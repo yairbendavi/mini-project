@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using System.Globalization;
 using System.Collections.ObjectModel;
 using System.Threading;
+using System.ComponentModel;
 
 namespace UI
 {
@@ -26,6 +27,7 @@ namespace UI
     public partial class LINQwindow : Window
     {
         IBL BL;
+        BackgroundWorker backgroundWorker;
         #region Lists
         public ObservableCollection<Nanny> GetAllNannies { get; set; }
         public ObservableCollection<Child> GetAllChildren { get; set; }
@@ -39,6 +41,7 @@ namespace UI
         public ObservableCollection<Contract> GroupAllContractsByDistance { get; set; }
         public ObservableCollection<Child> ShowAllChildrenWithoutNanny { get; set; }
         #endregion
+
         public LINQwindow()
         {
             InitializeComponent();
@@ -54,6 +57,10 @@ namespace UI
             GetAllMothers = new ObservableCollection<Mother>();
             GetAllNannies = new ObservableCollection<Nanny>();
             GetAllContracts = new ObservableCollection<Contract>();
+
+            backgroundWorker = new BackgroundWorker();
+            backgroundWorker.DoWork += BackgroundWorker_DoWork;
+            backgroundWorker.RunWorkerCompleted += BackgroundWorker_RunWorkerCompleted;
 
             GetAllChildrenWithoutNannyListView.DataContext = this;
             GroupAllContractsByDistanceListView.DataContext = this;
@@ -145,22 +152,20 @@ namespace UI
                     break;
                 case "Group all contracts by distance":
                     CleanGrid();
-                    Thread t = new Thread(GroupContractsByDistance);
-                    t.Start();
+                    backgroundWorker.RunWorkerAsync();
                     break;
             }
         }
-        private void GroupContractsByDistance()
+
+        private void BackgroundWorker_DoWork(object sender,DoWorkEventArgs e)
+        {            
+            e.Result = BL.GetContractsGroupedByDistance();     
+        }
+        private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            GroupAllContractsByDistance.Clear();
-            foreach (var item in BL.GetContractsGroupedByDistance())
+            foreach (var item in e.Result as IEnumerable<IGrouping<int, Contract>>)
                 foreach (var ctr in item)
                     GroupAllContractsByDistance.Add(ctr);
-            Action act = ThreadFunc;
-            Dispatcher.BeginInvoke(act);
-        }
-        private void ThreadFunc()
-        {
             GroupAllContractsByDistanceListView.Visibility = Visibility.Visible;
         }
         private void CleanGrid()

@@ -106,75 +106,74 @@ namespace BL
             return sum;
         }
         /// to intialize the values of the DS
-        public void Initialization()
-        {
-            Nanny Ayala_Zehavi = new Nanny
-            (123456782, "zehavi", "Ayala", new DateTime(1980, 5, 19), "0523433333", "Beit Ha-Defus St 21,Jerusalem,israel", true, 2, 3, 5, 120, 12, true, 30, 5000, new bool[] { true, true, true, true, true, false, false }, true, " ",
-            new Dictionary<int, HoursRange>
-            {
-                    {0, new HoursRange(new DateTime(2000, 1, 1, 7, 30, 0), new DateTime(2000, 1, 1, 10, 0, 0))},
-                    {1, new HoursRange(new DateTime(2000, 1, 1, 9, 30, 0), new DateTime(2000, 1, 1, 14, 45, 0))},
-                    {2, new HoursRange(new DateTime(2000, 1, 1, 15, 30, 0), new DateTime(2000, 1, 1, 19, 0, 0))},
-                    {3, new HoursRange(new DateTime(2000, 1, 1, 16, 30, 0), new DateTime(2000, 1, 1, 22, 15, 0))},
-                    {4, new HoursRange(new DateTime(2000, 1, 1, 18, 30, 0), new DateTime(2000, 1, 1, 23, 45, 0))},
-                    {5, new HoursRange(new DateTime(2000, 1, 1, 0, 0, 0), new DateTime(2000, 1, 1, 0, 0, 0))},
-                    {6, new HoursRange(new DateTime(2000, 1, 1, 0, 0, 0), new DateTime(2000, 1, 1, 0, 0, 0))},
-            });
+        //public void Initialization()
+        //{
+        //    Nanny Ayala_Zehavi = new Nanny
+        //    (123456782, "zehavi", "Ayala", new DateTime(1980, 5, 19), "0523433333", "Givati St 21,Ashkelon,israel", true, 2, 3, 5, 120, 12, true, 30, 5000, new bool[] { true, true, true, true, true, false, false }, true, " ",
+        //    new Dictionary<int, HoursRange>
+        //    {
+        //            {0, new HoursRange(new DateTime(2000, 1, 1, 7, 30, 0), new DateTime(2000, 1, 1, 10, 0, 0))},
+        //            {1, new HoursRange(new DateTime(2000, 1, 1, 9, 30, 0), new DateTime(2000, 1, 1, 14, 45, 0))},
+        //            {2, new HoursRange(new DateTime(2000, 1, 1, 15, 30, 0), new DateTime(2000, 1, 1, 19, 0, 0))},
+        //            {3, new HoursRange(new DateTime(2000, 1, 1, 16, 30, 0), new DateTime(2000, 1, 1, 22, 15, 0))},
+        //            {4, new HoursRange(new DateTime(2000, 1, 1, 18, 30, 0), new DateTime(2000, 1, 1, 23, 45, 0))},
+        //            {5, new HoursRange(new DateTime(2000, 1, 1, 0, 0, 0), new DateTime(2000, 1, 1, 0, 0, 0))},
+        //            {6, new HoursRange(new DateTime(2000, 1, 1, 0, 0, 0), new DateTime(2000, 1, 1, 0, 0, 0))},
+        //    });
 
-            Nanny Moria_Schneider = new Nanny
-            (198345394, "Schneider", "Moria", new DateTime(1974, 12, 23), "0523433598", "Givati St 21,Ashkelon,israel", false, 1, 2, 9, 60, 6, true, 25.0, 4250.0, new bool[] { false, true, true, true, true, true, false }, false, " ",
-            new Dictionary<int, HoursRange>
-            {
-                    {0, new HoursRange(new DateTime(2000, 1, 1, 0, 0, 0), new DateTime(0, 0, 0, 0, 0, 0))},
-                    {1, new HoursRange(new DateTime(2000, 1, 1, 15, 15, 0), new DateTime(2000, 1, 1, 19, 20, 0))},
-                    {2, new HoursRange(new DateTime(2000, 1, 1, 12, 30, 0), new DateTime(2000, 1, 1, 14, 0, 0))},
-                    {3, new HoursRange(new DateTime(2000, 1, 1, 13, 30, 0), new DateTime(2000, 1, 1, 19, 15, 0))},
-                    {4, new HoursRange(new DateTime(2000, 1, 1, 18, 30, 0), new DateTime(2000, 1, 1, 23, 45, 0))},
-                    {5, new HoursRange(new DateTime(2000, 1, 1, 7, 0, 0), new DateTime(2000, 1, 1, 11, 0, 0))},
-                    {6, new HoursRange(new DateTime(2000, 1, 1, 0, 0, 0), new DateTime(2000, 1, 1, 0, 0, 0))},
-            });
-            AddNanny(Ayala_Zehavi);
-            AddNanny(Moria_Schneider);
+        //    Nanny Moria_Schneider = new Nanny
+        //    (198345394, "Schneider", "Moria", new DateTime(1974, 12, 23), "0523433598", "Givati St 22,Ashkelon,israel", false, 1, 2, 9, 60, 6, true, 25.0, 4250.0, new bool[] { false, true, true, true, true, true, false }, false, " ",
+        //    new Dictionary<int, HoursRange>
+        //    {
+        //            {0, new HoursRange(new DateTime(2000, 1, 1, 0, 0, 0), new DateTime(2000,1,1, 0, 0, 0))},
+        //            {1, new HoursRange(new DateTime(2000, 1, 1, 15, 15, 0), new DateTime(2000, 1, 1, 19, 20, 0))},
+        //            {2, new HoursRange(new DateTime(2000, 1, 1, 12, 30, 0), new DateTime(2000, 1, 1, 14, 0, 0))},
+        //            {3, new HoursRange(new DateTime(2000, 1, 1, 13, 30, 0), new DateTime(2000, 1, 1, 19, 15, 0))},
+        //            {4, new HoursRange(new DateTime(2000, 1, 1, 18, 30, 0), new DateTime(2000, 1, 1, 23, 45, 0))},
+        //            {5, new HoursRange(new DateTime(2000, 1, 1, 7, 0, 0), new DateTime(2000, 1, 1, 11, 0, 0))},
+        //            {6, new HoursRange(new DateTime(2000, 1, 1, 0, 0, 0), new DateTime(2000, 1, 1, 0, 0, 0))},
+        //    });
+        //    AddNanny(Ayala_Zehavi);
+        //    AddNanny(Moria_Schneider);
 
-            Mother Ayelt_Shaked = new Mother
-            (666666666, "Ayelt", "Shaked", "0521234566", "Shakhal St 23,Jerusalem,isreal", "Shakhal St 23,Jerusalem,isreal", true, new bool[] { true, true, true, true, true, false },
-            new Dictionary<int, HoursRange>
-            {
-                    {0, new HoursRange(new DateTime(2000, 1, 1, 0, 0, 0), new DateTime(2000, 1, 1, 0, 0, 0))},
-                    {1, new HoursRange(new DateTime(2000, 1, 1, 15, 15, 0), new DateTime(2000, 1, 1, 19, 20, 0))},
-                    {2, new HoursRange(new DateTime(2000, 1, 1, 12, 30, 0), new DateTime(2000, 1, 1, 14, 0, 0))},
-                    {3, new HoursRange(new DateTime(2000, 1, 1, 13, 30, 0), new DateTime(2000, 1, 1, 19, 15, 0))},
-                    {4, new HoursRange(new DateTime(2000, 1, 1, 18, 30, 0), new DateTime(2000, 1, 1, 23, 45, 0))},
-                    {5, new HoursRange(new DateTime(2000, 1, 1, 7, 0, 0), new DateTime(2000, 1, 1, 11, 0, 0))},
-                    {6, new HoursRange(new DateTime(2000, 1, 1, 0, 0, 0), new DateTime(2000, 1, 1, 0, 0, 0))},
-            }, " ", 20);
-            Mother Gilat_Bennet = new Mother
-            (113542872, "Bennet", "Gilat", "0522567566", "Givati St 7,Ashkelon,isreal", "Rosh Pina St 3,Ashdod,israel", true, new bool[] { true, true, true, true, true, false },
-            new Dictionary<int, HoursRange>
-            {
-                    {0, new HoursRange(new DateTime(2000, 1, 1, 0, 0, 0), new DateTime(2000, 1, 1, 0, 0, 0))},
-                    {1, new HoursRange(new DateTime(2000, 1, 1, 15, 15, 0), new DateTime(2000, 1, 1, 19, 20, 0))},
-                    {2, new HoursRange(new DateTime(2000, 1, 1, 12, 30, 0), new DateTime(2000, 1, 1, 14, 0, 0))},
-                    {3, new HoursRange(new DateTime(2000, 1, 1, 13, 30, 0), new DateTime(2000, 1, 1, 19, 15, 0))},
-                    {4, new HoursRange(new DateTime(2000, 1, 1, 18, 30, 0), new DateTime(2000, 1, 1, 23, 45, 0))},
-                    {5, new HoursRange(new DateTime(2000, 1, 1, 7, 0, 0), new DateTime(2000, 1, 1,11, 0, 0))},
-                    {6, new HoursRange(new DateTime(2000, 1, 1, 0, 0, 0), new DateTime(2000, 1, 1, 0, 0, 0))},
-            }, " ", 20);
-            AddMother(Ayelt_Shaked);
-            AddMother(Gilat_Bennet);
+        //    Mother Ayelt_Shaked = new Mother
+        //    (666666666, "Ayelt", "Shaked", "0521234566", "Shakhal St 23,Jerusalem,isreal", "Givati St 23,Ashkelon,israel", true, new bool[] { true, true, true, true, true, false },
+        //    new Dictionary<int, HoursRange>
+        //    {
+        //            {0, new HoursRange(new DateTime(2000, 1, 1, 0, 0, 0), new DateTime(2000, 1, 1, 0, 0, 0))},
+        //            {1, new HoursRange(new DateTime(2000, 1, 1, 15, 15, 0), new DateTime(2000, 1, 1, 19, 20, 0))},
+        //            {2, new HoursRange(new DateTime(2000, 1, 1, 12, 30, 0), new DateTime(2000, 1, 1, 14, 0, 0))},
+        //            {3, new HoursRange(new DateTime(2000, 1, 1, 13, 30, 0), new DateTime(2000, 1, 1, 19, 15, 0))},
+        //            {4, new HoursRange(new DateTime(2000, 1, 1, 18, 30, 0), new DateTime(2000, 1, 1, 23, 45, 0))},
+        //            {5, new HoursRange(new DateTime(2000, 1, 1, 7, 0, 0), new DateTime(2000, 1, 1, 11, 0, 0))},
+        //            {6, new HoursRange(new DateTime(2000, 1, 1, 0, 0, 0), new DateTime(2000, 1, 1, 0, 0, 0))},
+        //    }, " ", 20);
+        //    Mother Gilat_Bennet = new Mother
+        //    (113542872, "Bennet", "Gilat", "0522567566", "Givati St 7,Ashkelon,isreal", "Givati St 24,Ashkelon,israel", true, new bool[] { true, true, true, true, true, false },
+        //    new Dictionary<int, HoursRange>
+        //    {
+        //            {0, new HoursRange(new DateTime(2000, 1, 1, 0, 0, 0), new DateTime(2000, 1, 1, 0, 0, 0))},
+        //            {1, new HoursRange(new DateTime(2000, 1, 1, 15, 15, 0), new DateTime(2000, 1, 1, 19, 20, 0))},
+        //            {2, new HoursRange(new DateTime(2000, 1, 1, 12, 30, 0), new DateTime(2000, 1, 1, 14, 0, 0))},
+        //            {3, new HoursRange(new DateTime(2000, 1, 1, 13, 30, 0), new DateTime(2000, 1, 1, 19, 15, 0))},
+        //            {4, new HoursRange(new DateTime(2000, 1, 1, 18, 30, 0), new DateTime(2000, 1, 1, 23, 45, 0))},
+        //            {5, new HoursRange(new DateTime(2000, 1, 1, 7, 0, 0), new DateTime(2000, 1, 1,11, 0, 0))},
+        //            {6, new HoursRange(new DateTime(2000, 1, 1, 0, 0, 0), new DateTime(2000, 1, 1, 0, 0, 0))},
+        //    }, " ", 20);
+        //    AddMother(Ayelt_Shaked);
+        //    AddMother(Gilat_Bennet);
 
-            Child Yair = new Child(322690124, 666666666, "Yair", new DateTime(2013, 2, 12), false, "the smartest boy in the world");
-            Child Dror = new Child(302302039, 113542872, "Dror", new DateTime(2015, 3, 29), true, "Is STUPID");
-            AddChild(Yair);
-            AddChild(Dror);
+        //    Child Yair = new Child(322690124, 666666666, "Yair", new DateTime(2013, 2, 12), false, "the smartest boy in the world");
+        //    Child Dror = new Child(302302039, 113542872, "Dror", new DateTime(2015, 3, 29), true, "Is STUPID");
+        //    AddChild(Yair);
+        //    AddChild(Dror);
 
-            Contract contract1 = new Contract(Dror, Ayelt_Shaked, Ayala_Zehavi, true, true, new DateTime(2019, 12, 20));
-            Contract contract2 = new Contract(Yair, Gilat_Bennet, Moria_Schneider, false, false, new DateTime(2021, 4, 13));
-            AddContract(contract1);
-            AddContract(contract2);
-        }
+        //    Contract contract1 = new Contract(Dror, Ayelt_Shaked, Ayala_Zehavi, true, true, new DateTime(2019, 12, 20));
+        //    Contract contract2 = new Contract(Yair, Gilat_Bennet, Moria_Schneider, false, false, new DateTime(2021, 4, 13));
+        //    AddContract(contract1);
+        //    AddContract(contract2);
+        //}
 
-        // adds a nanny to DS
         public void AddNanny(Nanny nanny)
         {
             if (DateTime.Now.Year - nanny.BirthDate.Year < 18)
