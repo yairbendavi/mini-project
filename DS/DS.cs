@@ -6,6 +6,7 @@ using System.Xml.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Xml.Serialization;
 
 namespace DS
 {
@@ -60,18 +61,28 @@ namespace DS
     }
     public class ChildrenFile
     {
-        public XElement Root;
-        public string Path = @"ChildrenFileXml.xml";
+        public string Path = @"XmlFile.xml";
 
         public ChildrenFile()
         {
             if (!File.Exists(Path))
             {
-                Root = new XElement("ChildrenFile");
-                Root.Save(Path);
+                CreateFiles();
             }
-            else
-                Root = XElement.Load(Path);
+        }
+
+        private void CreateFiles()
+        {
+            FileStream file = new FileStream(Path, FileMode.Create);
+            file.Close();
+        }
+
+        public void SaveToXML(List<Child> list)
+        {
+            FileStream file = new FileStream(Path, FileMode.Open);
+            XmlSerializer xmlSerializer = new XmlSerializer(list.GetType());
+            xmlSerializer.Serialize(file, list);
+            file.Close();
         }
     }
     public class ContractsFile

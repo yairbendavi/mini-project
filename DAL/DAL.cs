@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace DAL
 {
@@ -254,7 +255,6 @@ namespace DAL
 
     public class Xml_DAL_imp : IDAL
     {
-        private XElement ChildrenFile = XmlDataSource.ChildrenFile.Root;
         private string ChildrenPath = XmlDataSource.ChildrenFile.Path;
         private XElement ContractsFile = XmlDataSource.ContractsFile.Root;
         private string ContractsPath = XmlDataSource.ContractsFile.Path;
@@ -286,10 +286,6 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
-        private Child XElementToChild(XElement child)
-        {
-            throw new NotImplementedException();
-        }
         private Contract XElementToContract(XElement contract)
         {
             throw new NotImplementedException();
@@ -297,14 +293,24 @@ namespace DAL
 
         public void AddChild(Child child)
         {
-            foreach (XElement element in ChildrenFile.Elements())
-                if (uint.Parse(element.Element("Id").Value) == child.Id)
-                    throw new IdException
-                    {
-                        Message = "A child with this id already exists in the system."
-                    };
-            ChildrenFile.Add(ConvertToXElement<Child>(child));
-            ChildrenFile.Save(ChildrenPath);
+            FileStream file = new FileStream(ChildrenPath, FileMode.Open);
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Child>));
+            List<Child> list1 = new List<Child>();
+
+            try
+            {
+                list1 = (List<Child>)xmlSerializer.Deserialize(file);
+                list1.Add(child);
+            }
+            catch
+            {
+                list1 = new List<Child>()
+                {
+                    child
+                };
+            }
+            file.Close();
+            XmlDataSource.ChildrenFile.SaveToXML(list1);
         }
         public void AddContract(Contract contract)
         {
@@ -345,19 +351,14 @@ namespace DAL
 
         public void DeleteChild(uint childId)
         {
-            XElement ChildElement;
-            ChildElement = (from item in ChildrenFile.Elements()
-                            where uint.Parse(item.Element("Id").Value) == childId
-                            select item).FirstOrDefault();
+            FileStream file1 = new FileStream(ChildrenPath, FileMode.Open);
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Child>));
+            List<Child> list = (List<Child>)serializer.Deserialize(file1);
 
-            if (ChildElement == null)
-                throw new IdException
-                {
-                    Message = "A child with this id does not exist in the system."
-                };
+            list.Remove(list.Find(x => x.Id == childId));
+            serializer.Serialize(file1, list);
 
-            ChildElement.Remove();
-            ChildrenFile.Save(ChildrenPath);
+            file1.Close();
         }
         public void DeleteContract(uint contractNumber)
         {
@@ -373,7 +374,7 @@ namespace DAL
                 };
 
             ContractElement.Remove();
-            ChildrenFile.Save(ContractsPath);
+            ContractsFile.Save(ContractsPath);
         }
         public void DeleteMother(uint motherId)
         {
@@ -431,22 +432,11 @@ namespace DAL
 
         public List<Child> GetAllChildren()
         {
-            List<Child> list = new List<Child>();
-
-            foreach (XElement element in ChildrenFile.Elements())
-                list.Add(XElementToChild(element));
-
-            return list;
+            throw new NotImplementedException();
         }
         public List<Child> GetAllChildrenByMother(uint motherId)
         {
-            List<Child> list = new List<Child>();
-
-            foreach (XElement element in ChildrenFile.Elements())
-                if (XElementToChild(element).MotherId == motherId)
-                    list.Add(XElementToChild(element));
-
-            return list;
+            throw new NotImplementedException();
         }
         public List<Contract> GetAllContracts()
         {
