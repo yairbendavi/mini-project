@@ -432,11 +432,40 @@ namespace DAL
 
         public List<Child> GetAllChildren()
         {
-            throw new NotImplementedException();
+            FileStream file = new FileStream(ChildrenPath, FileMode.Open);
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Child>));
+            List<Child> list1 = new List<Child>();
+
+            try
+            {
+                list1 = (List<Child>)xmlSerializer.Deserialize(file);
+            }
+            catch
+            {
+                list1 = null;
+            }
+
+            return list1;
         }
         public List<Child> GetAllChildrenByMother(uint motherId)
         {
-            throw new NotImplementedException();
+            FileStream file = new FileStream(ChildrenPath, FileMode.Open);
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Child>));
+            List<Child> list = new List<Child>();
+
+            try
+            {
+                List<Child> list1 = (List<Child>)xmlSerializer.Deserialize(file);
+
+                foreach (Child child in list1.FindAll(x => x.Id == motherId))
+                    list.Add(child);
+            }
+            catch
+            {
+                list = null;
+            }
+
+            return list;
         }
         public List<Contract> GetAllContracts()
         {
