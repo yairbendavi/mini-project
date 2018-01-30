@@ -24,15 +24,13 @@ namespace UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        #region wins
-
-        #endregion
-
         public MainWindow()
         {
             InitializeComponent();
 
             IBL a = new BL_imp();
+            BL_imp b = new BL_imp();
+            b.Initialization();
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)

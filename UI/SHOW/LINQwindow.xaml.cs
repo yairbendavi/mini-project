@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Globalization;
 using System.Collections.ObjectModel;
+using System.Threading;
 
 namespace UI
 {
@@ -143,14 +144,24 @@ namespace UI
                     GetAllChildrenWithoutNannyListView.Visibility = Visibility.Visible;
                     break;
                 case "Group all contracts by distance":
-                    GroupAllContractsByDistance.Clear();
-                    foreach (var item in BL.GetContractsGroupedByDistance())
-                        foreach (var ctr in item)
-                            GroupAllContractsByDistance.Add(ctr);
                     CleanGrid();
-                    GroupAllContractsByDistanceListView.Visibility = Visibility.Visible;
+                    Thread t = new Thread(GroupContractsByDistance);
+                    t.Start();
                     break;
             }
+        }
+        private void GroupContractsByDistance()
+        {
+            GroupAllContractsByDistance.Clear();
+            foreach (var item in BL.GetContractsGroupedByDistance())
+                foreach (var ctr in item)
+                    GroupAllContractsByDistance.Add(ctr);
+            Action act = ThreadFunc;
+            Dispatcher.BeginInvoke(act);
+        }
+        private void ThreadFunc()
+        {
+            GroupAllContractsByDistanceListView.Visibility = Visibility.Visible;
         }
         private void CleanGrid()
         {
