@@ -29,7 +29,7 @@
             <Label VerticalAlignment="Center" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Begining Date:"/>
             <DatePicker x:Name="beginingDateDatePicker" VerticalAlignment="Center" SelectedDate="{Binding BeginingDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
             <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Contruct Number:"/>
-            <TextBox x:Name="contructNumberTextBox" Width="120" VerticalAlignment="Center" Text="{Binding ContructNumber, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+            <TextBox x:Name="contructNumberTextBox" Width="120" VerticalAlignment="Center" Text="{Binding ContructNumber, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1" IsEnabled="False"/>
             <Label VerticalAlignment="Center" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Ending Date:"/>
             <DatePicker x:Name="endingDateDatePicker" VerticalAlignment="Center" SelectedDate="{Binding EndingDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
             <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Is Signed:"/>
@@ -43,12 +43,11 @@
             <Label VerticalAlignment="Center" Grid.Row="7" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Was Meating:"/>
             <CheckBox x:Name="wasMeatingCheckBox" VerticalAlignment="Center" Grid.Row="7" Margin="3" IsChecked="{Binding WasMeating, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Grid.Column="1" Content=""/>
             <Label VerticalAlignment="Center" Grid.Row="9" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Nanny ID:"/>
-            <TextBox x:Name="nannyIdTextBox" Width="120" VerticalAlignment="Center" Text="{Binding Nanny.Id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="8" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+            <TextBox x:Name="motherIdTextBox" Width="120" VerticalAlignment="Center" Grid.Row="8" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
             <Label VerticalAlignment="Center" Grid.Row="8" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Mother ID:"/>
-            <ComboBox Name="NannyIdComboBox" Grid.Row="9" Grid.Column="1"/>
-
+            <TextBox x:Name="nannyIdTextBox" Width="120" VerticalAlignment="Center" Grid.Row="9" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
             <Label VerticalAlignment="Center" Grid.Row="10" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Child ID:"/>
-            <TextBox x:Name="childIdTextBox" Width="120" VerticalAlignment="Center" Text="{Binding Child.Id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="10" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+            <TextBox x:Name="childIdTextBox" Width="120" VerticalAlignment="Center" Grid.Row="10" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
         </Grid>
         <Button Content="Add" HorizontalAlignment="Left" Margin="10,367,0,0" VerticalAlignment="Top" Width="252" Height="42" FontSize="30" Click="Button_Click"/>
 

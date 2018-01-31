@@ -26,6 +26,9 @@ namespace UI
         IBL BL;
         Contract contract;
         BackgroundWorker BackgroundWorker;
+        int NannyId;
+        int MotherId;
+        int ChildId;
 
         public AddContract()
         {
@@ -36,24 +39,20 @@ namespace UI
             BackgroundWorker = new BackgroundWorker();
             this.DataContext = contract;
             BackgroundWorker.DoWork += BackgroundWorker_DoWork;
-            BackgroundWorker.RunWorkerCompleted += BackgroundWorker_RunWorkerCompleted;
-
-            foreach (var nanny in BL.GetAllNannys())
-            {
-                ComboBoxItem item = new ComboBoxItem
-                {
-                    Content = nanny.Id
-                };
-
-                this.NannyIdComboBox.Items.Add(item);
-            }
+            BackgroundWorker.RunWorkerCompleted += BackgroundWorker_RunWorkerCompleted;            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            NannyId = int.Parse(nannyIdTextBox.Text);
+            MotherId = int.Parse(motherIdTextBox.Text);
+            ChildId = int.Parse(childIdTextBox.Text);
+
+            contract.Nanny = BL.GetAllNannys().ToList().Find(x => x.Id == NannyId);
+            contract.Child = BL.GetAllChildren().ToList().Find(x => x.Id == ChildId);
+            contract.Mother = BL.GetAllMothers().ToList().Find(x => x.Id == MotherId);
+
             BackgroundWorker.RunWorkerAsync();
-            contract = new Contract();
-            this.DataContext = contract;
             this.Close();
         }
         private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
