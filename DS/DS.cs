@@ -36,7 +36,7 @@ namespace DS
         {
             if (!File.Exists(Path))
             {
-                Root = new XElement("ChildrenFile");
+                Root = new XElement("NannysFile");
                 Root.Save(Path);
             }
             else
@@ -52,7 +52,7 @@ namespace DS
         {
             if (!File.Exists(Path))
             {
-                Root = new XElement("ChildrenFile");
+                Root = new XElement("MothersFile");
                 Root.Save(Path);
             }
             else
@@ -61,7 +61,7 @@ namespace DS
     }
     public class ChildrenFile
     {
-        public string Path = @"XmlFile.xml";
+        public string Path = @"ChildrenFile.xml";
 
         public ChildrenFile()
         {
@@ -94,7 +94,7 @@ namespace DS
         {
             if (!File.Exists(Path))
             {
-                Root = new XElement("ChildrenFile");
+                Root = new XElement("ContractsFile");
                 Root.Save(Path);
             }
             else

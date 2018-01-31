@@ -216,17 +216,14 @@ namespace DAL
         //returns a lis t of all the nannys in the ds
         public List<Nanny> GetAllNannys()
         {
-            if (DataSource.Nannys.Count == 0)
-                return new List<Nanny>();
             var linq = from Nanny item in DataSource.Nannys
                        select item;
             return linq.ToList<Nanny>();
+
         }
         //returns a lis t of all the mothers in the ds
         public List<Mother> GetAllMothers()
         {
-            if (DataSource.Mothers.Count == 0)
-                return new List<Mother>();
             var linq = from Mother item in DataSource.Mothers
                        select item;
             return linq.ToList<Mother>();
@@ -234,13 +231,11 @@ namespace DAL
         //returns a lis t of all the ChildrenFile in the ds
         public List<Child> GetAllChildren()
         {
-            if (DataSource.Children.Count == 0)
-                return new List<Child>();
             var linq = from Child item in DataSource.Children
                        select item;
             return linq.ToList<Child>();
         }
-        //returns a list of all the ChildrenFile in the ds according to aq specific mother
+        //returns a lis t of all the ChildrenFile in the ds according to aq specific mother
         public List<Child> GetAllChildrenByMother(uint motherId)
         {
             var linq = from child in GetAllChildren()
@@ -249,16 +244,12 @@ namespace DAL
 
             return linq.ToList<Child>();
         }
-        //returns a list of all the contracts in the ds
+        //returns a lis t of all the contracts in the ds
         public List<Contract> GetAllContracts()
         {
-            if (DataSource.Contracts.Count != 0)
-            {
-                var linq = from Contract item in DataSource.Contracts
-                           select item;
-                return linq.ToList<Contract>();
-            }
-            return new List<Contract>();
+            var linq = from Contract item in DataSource.Contracts
+                       select item;
+            return linq.ToList<Contract>();
         }
     }
 
@@ -281,23 +272,137 @@ namespace DAL
 
             return TElement;
         }
+        private Child XElementToChild(XElement child)
+        {
+            return new Child()
+            {
+                Id = uint.Parse(child.Element("Id").Value),
+                MotherId = uint.Parse(child.Element("MotherId").Value),
+                FirstName = child.Element("FirstName").Value,
+
+                BirthDay = new DateTime
+                (
+                    int.Parse(child.Element("BirthDay").Element("Year").Value),
+                    int.Parse(child.Element("BirthDay").Element("Month").Value),
+                    int.Parse(child.Element("BirthDay").Element("Day").Value)
+                ),
+
+                IsThereSpecialNeeds = bool.Parse(child.Element("IsThereSpecialNeeds").Value),
+                SpecialNeeds = child.Element("SpecialNeeds").Value,
+            };
+        }
         private Nanny XElementToNanny(XElement nanny)
         {
-            Nanny nanny1 = new Nanny
+            return new Nanny
             {
-                Id = uint.Parse(nanny.Element("Id").Value)
-
+                Id = uint.Parse(nanny.Element("Id").Value),
+                LastName = nanny.Element("LastName").Value,
+                FirstName = nanny.Element("FirstName").Value,
+                BirthDate = new DateTime
+                (
+                    int.Parse(nanny.Element("BirthDate").Element("Year").Value),
+                    int.Parse(nanny.Element("BirthDate").Element("Month").Value),
+                    int.Parse(nanny.Element("BirthDate").Element("Day").Value)
+                ),
+                TelephonNumber = nanny.Element("TelephonNumber").Value,
+                Adress = nanny.Element("Adress").Value,
+                IsThereElevator = bool.Parse(nanny.Element("IsThereElevator").Value),
+                Floor = int.Parse(nanny.Element("Floor").Value),
+                YersOfExperiance = int.Parse(nanny.Element("YersOfExperiance").Value),
+                MaxChildren = int.Parse(nanny.Element("MaxChildren").Value),
+                NumberOfChildren = int.Parse(nanny.Element("NumberOfChildren").Value),
+                MaxAge = int.Parse(nanny.Element("MaxAge").Value),
+                MinAge = int.Parse(nanny.Element("MinAge").Value),
+                AllowsSalaryPerHour = bool.Parse(nanny.Element("AllowsSalaryPerHour").Value),
+                SalareyPerHour = double.Parse(nanny.Element("SalareyPerHour").Value),
+                SalareyPerMonth = double.Parse(nanny.Element("SalareyPerMonth").Value),
+                DaysOfWork =
+                {
+                    [0] = bool.Parse(nanny.Element("DaysOfWork").Elements().ToList().ElementAt(0).Value),
+                    [1] = bool.Parse(nanny.Element("DaysOfWork").Elements().ToList().ElementAt(1).Value),
+                    [2] = bool.Parse(nanny.Element("DaysOfWork").Elements().ToList().ElementAt(2).Value),
+                    [3] = bool.Parse(nanny.Element("DaysOfWork").Elements().ToList().ElementAt(3).Value),
+                    [4] = bool.Parse(nanny.Element("DaysOfWork").Elements().ToList().ElementAt(4).Value),
+                    [5] = bool.Parse(nanny.Element("DaysOfWork").Elements().ToList().ElementAt(5).Value),
+                    [6] = bool.Parse(nanny.Element("DaysOfWork").Elements().ToList().ElementAt(6).Value)
+                },
+                WorkingHours = new Dictionary<int, HoursRange>()
+                {
+                    [0] = new HoursRange(DateTime.Parse(nanny.Element("WorkingHours").Elements("BeginingTime").ToList()[0].Value), DateTime.Parse(nanny.Element("WorkingHours").Elements("EndingTime").ToList()[0].Value)),
+                    [1] = new HoursRange(DateTime.Parse(nanny.Element("WorkingHours").Elements("BeginingTime").ToList()[1].Value), DateTime.Parse(nanny.Element("WorkingHours").Elements("EndingTime").ToList()[1].Value)),
+                    [2] = new HoursRange(DateTime.Parse(nanny.Element("WorkingHours").Elements("BeginingTime").ToList()[2].Value), DateTime.Parse(nanny.Element("WorkingHours").Elements("EndingTime").ToList()[2].Value)),
+                    [3] = new HoursRange(DateTime.Parse(nanny.Element("WorkingHours").Elements("BeginingTime").ToList()[3].Value), DateTime.Parse(nanny.Element("WorkingHours").Elements("EndingTime").ToList()[3].Value)),
+                    [4] = new HoursRange(DateTime.Parse(nanny.Element("WorkingHours").Elements("BeginingTime").ToList()[4].Value), DateTime.Parse(nanny.Element("WorkingHours").Elements("EndingTime").ToList()[4].Value)),
+                    [5] = new HoursRange(DateTime.Parse(nanny.Element("WorkingHours").Elements("BeginingTime").ToList()[5].Value), DateTime.Parse(nanny.Element("WorkingHours").Elements("EndingTime").ToList()[5].Value)),
+                    [6] = new HoursRange(DateTime.Parse(nanny.Element("WorkingHours").Elements("BeginingTime").ToList()[6].Value), DateTime.Parse(nanny.Element("WorkingHours").Elements("EndingTime").ToList()[6].Value))
+                },
+                VacationDays = bool.Parse(nanny.Element("VacationDays").Value),
+                Recommendations = nanny.Element("Recommendations").Value
             };
-
-            return nanny1;
         }
         private Mother XElementToMother(XElement mother)
         {
-            throw new NotImplementedException();
+            return new Mother()
+            {
+                Id = uint.Parse(mother.Element("Id").Value),
+                LastName = mother.Element("LastName").Value,
+                FirstName = mother.Element("FirstName").Value,
+                PhoneNumber = mother.Element("PhoneNumber").Value,
+                Address = mother.Element("Address").Value,
+                AddressForNanny = mother.Element("AddressForNanny").Value,
+                WantsSalaryPerHour = bool.Parse(mother.Element("WantsSalaryPerHour").Value),
+                RequiredDays =
+                {
+                    [0] = bool.Parse(mother.Element("RequiredDays").Elements().ToList().ElementAt(0).Value),
+                    [1] = bool.Parse(mother.Element("RequiredDays").Elements().ToList().ElementAt(1).Value),
+                    [2] = bool.Parse(mother.Element("RequiredDays").Elements().ToList().ElementAt(2).Value),
+                    [3] = bool.Parse(mother.Element("RequiredDays").Elements().ToList().ElementAt(3).Value),
+                    [4] = bool.Parse(mother.Element("RequiredDays").Elements().ToList().ElementAt(4).Value),
+                    [5] = bool.Parse(mother.Element("RequiredDays").Elements().ToList().ElementAt(5).Value),
+                    [6] = bool.Parse(mother.Element("RequiredDays").Elements().ToList().ElementAt(6).Value)
+                },
+
+                RequiredHours = new Dictionary<int, HoursRange>()
+                {
+                    [0] = new HoursRange(DateTime.Parse(mother.Element("RequiredHours").Elements("BeginingTime").ToList()[0].Value), DateTime.Parse(mother.Element("RequiredHours").Elements("EndingTime").ToList()[0].Value)),
+                    [1] = new HoursRange(DateTime.Parse(mother.Element("RequiredHours").Elements("BeginingTime").ToList()[1].Value), DateTime.Parse(mother.Element("RequiredHours").Elements("EndingTime").ToList()[1].Value)),
+                    [2] = new HoursRange(DateTime.Parse(mother.Element("RequiredHours").Elements("BeginingTime").ToList()[2].Value), DateTime.Parse(mother.Element("RequiredHours").Elements("EndingTime").ToList()[2].Value)),
+                    [3] = new HoursRange(DateTime.Parse(mother.Element("RequiredHours").Elements("BeginingTime").ToList()[3].Value), DateTime.Parse(mother.Element("RequiredHours").Elements("EndingTime").ToList()[3].Value)),
+                    [4] = new HoursRange(DateTime.Parse(mother.Element("RequiredHours").Elements("BeginingTime").ToList()[4].Value), DateTime.Parse(mother.Element("RequiredHours").Elements("EndingTime").ToList()[4].Value)),
+                    [5] = new HoursRange(DateTime.Parse(mother.Element("RequiredHours").Elements("BeginingTime").ToList()[5].Value), DateTime.Parse(mother.Element("RequiredHours").Elements("EndingTime").ToList()[5].Value)),
+                    [6] = new HoursRange(DateTime.Parse(mother.Element("RequiredHours").Elements("BeginingTime").ToList()[6].Value), DateTime.Parse(mother.Element("RequiredHours").Elements("EndingTime").ToList()[6].Value))
+                },
+
+                Comments = mother.Element("Comments").Value,
+                MaxDistance = int.Parse(mother.Element("MaxDistance").Value)
+            };
         }
         private Contract XElementToContract(XElement contract)
         {
-            throw new NotImplementedException();
+            return new Contract()
+            {
+                Child = XElementToChild(contract.Element("Child")),
+                Mother = XElementToMother(contract.Element("Mother")),
+                Nanny = XElementToNanny(contract.Element("Nanny")),
+                WasMeating = bool.Parse(contract.Element("WasMeating").Value),
+                IsSigned = bool.Parse(contract.Element("IsSigned").Value),
+                SalaryPerHour = double.Parse(contract.Element("SalaryPerHour").Value),
+                SalaryPerMonth = double.Parse(contract.Element("SalaryPerMonth").Value),
+                PerMonthOrHour = bool.Parse(contract.Element("PerMonthOrHour").Value),
+                BeginingDate = new DateTime
+                (
+                    int.Parse(contract.Element("BeginingDate").Element("Year").Value),
+                    int.Parse(contract.Element("BeginingDate").Element("Month").Value),
+                    int.Parse(contract.Element("BeginingDate").Element("Day").Value)
+                ),
+
+                EndingDate = new DateTime
+                (
+                    int.Parse(contract.Element("EndingDate").Element("Year").Value),
+                    int.Parse(contract.Element("EndingDate").Element("Month").Value),
+                    int.Parse(contract.Element("EndingDate").Element("Day").Value)
+                )
+            };
         }
 
         public void AddChild(Child child)
@@ -451,7 +556,7 @@ namespace DAL
             }
             catch
             {
-                list1 = null;
+
             }
 
             return list1;

@@ -231,7 +231,16 @@ namespace BE
             }
         }
 
-        private Dictionary<int, HoursRange> workingHours = new Dictionary<int, HoursRange>(7);
+        private Dictionary<int, HoursRange> workingHours = new Dictionary<int, HoursRange>(7)
+        {
+            [0] = new HoursRange(new DateTime(), new DateTime()),
+            [1] = new HoursRange(new DateTime(), new DateTime()),
+            [2] = new HoursRange(new DateTime(), new DateTime()),
+            [3] = new HoursRange(new DateTime(), new DateTime()),
+            [4] = new HoursRange(new DateTime(), new DateTime()),
+            [5] = new HoursRange(new DateTime(), new DateTime()),
+            [6] = new HoursRange(new DateTime(), new DateTime())
+        };
         public Dictionary<int, HoursRange> WorkingHours
         {
             get
@@ -490,8 +499,6 @@ namespace BE
 
         public Mother()
         {
-            for (int i = 0; i < 7; i++)
-                RequiredHours[i] = new HoursRange(new DateTime(), new DateTime());
         }
 
         // returns a string that describes the mother.
