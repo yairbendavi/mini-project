@@ -490,6 +490,8 @@ namespace BE
 
         public Mother()
         {
+            for (int i = 0; i < 7; i++)
+                RequiredHours[i] = new HoursRange(new DateTime(), new DateTime());
         }
 
         // returns a string that describes the mother.

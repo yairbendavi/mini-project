@@ -216,14 +216,17 @@ namespace DAL
         //returns a lis t of all the nannys in the ds
         public List<Nanny> GetAllNannys()
         {
+            if (DataSource.Nannys.Count == 0)
+                return new List<Nanny>();
             var linq = from Nanny item in DataSource.Nannys
                        select item;
             return linq.ToList<Nanny>();
-
         }
         //returns a lis t of all the mothers in the ds
         public List<Mother> GetAllMothers()
         {
+            if (DataSource.Mothers.Count == 0)
+                return new List<Mother>();
             var linq = from Mother item in DataSource.Mothers
                        select item;
             return linq.ToList<Mother>();
@@ -231,11 +234,13 @@ namespace DAL
         //returns a lis t of all the ChildrenFile in the ds
         public List<Child> GetAllChildren()
         {
+            if (DataSource.Children.Count == 0)
+                return new List<Child>();
             var linq = from Child item in DataSource.Children
                        select item;
             return linq.ToList<Child>();
         }
-        //returns a lis t of all the ChildrenFile in the ds according to aq specific mother
+        //returns a list of all the ChildrenFile in the ds according to aq specific mother
         public List<Child> GetAllChildrenByMother(uint motherId)
         {
             var linq = from child in GetAllChildren()
@@ -244,12 +249,16 @@ namespace DAL
 
             return linq.ToList<Child>();
         }
-        //returns a lis t of all the contracts in the ds
+        //returns a list of all the contracts in the ds
         public List<Contract> GetAllContracts()
         {
-            var linq = from Contract item in DataSource.Contracts
-                       select item;
-            return linq.ToList<Contract>();
+            if (DataSource.Contracts.Count != 0)
+            {
+                var linq = from Contract item in DataSource.Contracts
+                           select item;
+                return linq.ToList<Contract>();
+            }
+            return new List<Contract>();
         }
     }
 

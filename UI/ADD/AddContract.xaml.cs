@@ -39,7 +39,7 @@ namespace UI
             BackgroundWorker = new BackgroundWorker();
             this.DataContext = contract;
             BackgroundWorker.DoWork += BackgroundWorker_DoWork;
-            BackgroundWorker.RunWorkerCompleted += BackgroundWorker_RunWorkerCompleted;            
+            BackgroundWorker.RunWorkerCompleted += BackgroundWorker_RunWorkerCompleted;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
