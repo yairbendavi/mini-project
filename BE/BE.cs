@@ -1,4 +1,4 @@
-﻿using System;
+﻿uJKsing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -488,17 +488,19 @@ namespace BE
             this.lastName = lastName;
             this.firstName = firstName;
             this.phoneNumber = phoneNumber;
+            this.RequiredHours = requiredHours;
             this.address = address;
             this.addressForNanny = addressForNanny;
             this.wantsSalaryPerHour = wantsSalaryPerHour;
             this.requiredDays = requiredDays;
-            this.requiredHours = requiredHours;
             this.comments = comments;
             this.maxDistane = maxDistane;
         }
 
         public Mother()
         {
+            for (int i = 0; i < 7; i++)
+                requiredHours[i] = new HoursRange(new DateTime(), new DateTime());
         }
 
         // returns a string that describes the mother.
