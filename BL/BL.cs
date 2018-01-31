@@ -105,7 +105,7 @@ namespace BL
             }
             return sum;
         }
-        /// to intialize the values of the DS
+        /// to intialize the information in the DS
         //public void Initialization()
         //{
         //    Nanny Ayala_Zehavi = new Nanny

@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\haddad\Source\Repos\mini-project\UI\obj\Release\
+C:\Users\haddad\Desktop\mini-project\UI\obj\Release\
 UI
 none
 false
 TRACE
-C:\Users\haddad\Source\Repos\mini-project\UI\App.xaml
+C:\Users\haddad\Desktop\mini-project\UI\App.xaml
 14320388186
 
 19308866900
-17-1378483634
+17-1469319777
 ADD\AddNanny.xaml;ADD\AddMother.xaml;ADD\AddEntities.xaml;ADD\AddContract.xaml;ADD\AddChild.xaml;DeleteEntity.xaml;GOOGLE\PlaceAutoCompleteUC.xaml;SHOW\LINQwindow.xaml;MainWindow.xaml;UPDATE\UpdateNanny.xaml;UPDATE\UpdateMother.xaml;UPDATE\UpdateEntities.xaml;UPDATE\UpdateContract.xaml;UPDATE\UpdateChild.xaml;
 
 True
